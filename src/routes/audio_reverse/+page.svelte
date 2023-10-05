@@ -2,9 +2,33 @@
   import { Card } from "flowbite-svelte";
   import { sound } from "svelte-sound";
   import jeff from "../../static/audio/my-name-is-jeff.wav";
-  import axios from "axios";
 
   let audioSource = jeff;
+  let endpoint = "https://audio-reverse.onrender.com/reverse_wav";
+
+  async function reverseAudio() {
+    try {
+      const fileResponse = await fetch(audioSource);
+      const audioBlob = await fileResponse.blob();
+
+      const formData = new FormData();
+      // Use the same field name "audioFile" that your Flask backend expects
+      formData.append("contents", audioBlob, "my-name-is-jeff.wav");
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+      });
+
+      // Handle the response here
+      // You can parse the response as needed.
+      // For example, if it's a JSON response:
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (error) {
+      console.error("ERROR:", error);
+    }
+  }
 </script>
 
 <div class="flex justify-center items-center pt-20">
@@ -12,11 +36,18 @@
     <img src="mnij.png" alt="my name is jeff button picture" />
 
     <button
-      use:sound={{ src: audioSource, events: ["click"] }}
+      use:sound={{ src: jeff, events: ["click"] }}
       type="button"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >
       Play
+    </button>
+    <button
+      on:click={reverseAudio}
+      type="button"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Reverse
     </button>
   </Card>
 </div>
