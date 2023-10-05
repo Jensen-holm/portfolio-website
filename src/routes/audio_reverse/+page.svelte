@@ -1,5 +1,6 @@
 <script>
-  import { Dropzone } from "flowbite-svelte";
+  import { Dropzone, GradientButton } from "flowbite-svelte";
+  import axios from "axios";
 
   let value = [];
   const dropHandle = (event) => {
@@ -75,4 +76,14 @@
       <p>{showFiles(value)}</p>
     {/if}
   </Dropzone>
+</div>
+
+<div class="pt-10 pb-10">
+  <div class="">
+    <GradientButton color="greenToBlue">Reverse</GradientButton>
+  </div>
+
+  <div class="">
+    <GradientButton color="pinkToOrange">Play</GradientButton>
+  </div>
 </div>
