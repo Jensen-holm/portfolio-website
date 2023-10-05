@@ -1,89 +1,9 @@
-<script>
-  import { Dropzone, GradientButton } from "flowbite-svelte";
-  import axios from "axios";
-
-  let value = [];
-  const dropHandle = (event) => {
-    value = [];
-    event.preventDefault();
-    if (event.dataTransfer.items) {
-      [...event.dataTransfer.items].forEach((item, i) => {
-        if (item.kind === "file") {
-          const file = item.getAsFile();
-          value.push(file.name);
-          value = value;
-        }
-      });
-    } else {
-      [...event.dataTransfer.files].forEach((file, i) => {
-        value = file.name;
-      });
-    }
-  };
-
-  const handleChange = (event) => {
-    const files = event.target.files;
-    if (files.length > 0) {
-      value.push(files[0].name);
-      value = value;
-    }
-  };
-
-  const showFiles = (files) => {
-    if (files.length === 1) return files[0];
-    let concat = "";
-    files.map((file) => {
-      concat += file;
-      concat += ",";
-      concat += " ";
-    });
-
-    if (concat.length > 40) concat = concat.slice(0, 40);
-    concat += "...";
-    return concat;
-  };
+<script lang="ts">
+  import { GradientButton } from "flowbite-svelte";
+  import { sound } from "svelte-sound";
+  import nfl from "../../audio/nfl-on-espn.wav";
+  import jeff from "../../audio/my-name-is-jeff.wav";
 </script>
 
-<div class="pt-10 pb-10 mx-20">
-  <Dropzone
-    id="dropzone"
-    on:drop={dropHandle}
-    on:dragover={(event) => {
-      event.preventDefault();
-    }}
-    on:change={handleChange}
-  >
-    <svg
-      aria-hidden="true"
-      class="mb-3 w-10 h-10 text-gray-400"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      ><path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-      /></svg
-    >
-    {#if value.length === 0}
-      <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-        <span class="font-semibold">Click to upload</span> or drag and drop
-      </p>
-      <p class="text-xs text-gray-500 dark:text-gray-400">Must be .wav File</p>
-    {:else}
-      <p>{showFiles(value)}</p>
-    {/if}
-  </Dropzone>
-</div>
-
-<div class="pt-10 pb-10">
-  <div class="">
-    <GradientButton color="greenToBlue">Reverse</GradientButton>
-  </div>
-
-  <div class="">
-    <GradientButton color="pinkToOrange">Play</GradientButton>
-  </div>
-</div>
+<button use:sound={{ src: nfl, events: ["click"] }}> Click Me!! </button>
+<button use:sound={{ src: jeff, events: ["click"] }}> Click Me!! </button>
