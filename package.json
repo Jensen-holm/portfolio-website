@@ -28,6 +28,9 @@
     "fetch": "^1.1.0",
     "flowbite-svelte": "^0.44.18",
     "flowbite-svelte-icons": "^0.4.4",
-    "svelte-sound": "^0.6.0"
+    "howl": "^0.2.0",
+    "howler": "^2.2.4",
+    "svelte-sound": "^0.6.0",
+    "tone": "^14.7.77"
   }
 }

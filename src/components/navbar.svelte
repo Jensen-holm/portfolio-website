@@ -27,7 +27,7 @@
     </NavBrand>
     <NavHamburger />
     <NavUl>
-      <NavLi href="/" active={true}>Home</NavLi>
+      <NavLi href="/" active={true}>Projects</NavLi>
       <NavLi href="/about">About</NavLi>
       <NavLi href="/contact">Contact</NavLi>
     </NavUl>

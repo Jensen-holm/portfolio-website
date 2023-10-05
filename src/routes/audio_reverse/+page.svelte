@@ -1,10 +1,14 @@
 <script lang="ts">
+  import * as Tone from "tone";
   import { Card } from "flowbite-svelte";
   import { sound } from "svelte-sound";
   import jeff from "../../static/audio/my-name-is-jeff.wav";
 
   let audioSource = jeff;
+  let revAudio: Blob | null = null;
   let endpoint = "https://audio-reverse.onrender.com/reverse_wav";
+
+  console.log(jeff);
 
   async function reverseAudio() {
     try {
@@ -20,16 +24,12 @@
         body: formData,
       });
 
-      // right now this SHOULD overwrite audioSource which starts as the
-      // original jeff audio. so now audioSource = reversed jeff so the normal
-      // play button will hopefull play in reverse after this code below runs
       if (response.ok) {
         const audioArrayBuffer = await response.arrayBuffer();
-        // Do something with the audio data here
-        // For example, you can create a Blob and play it with Svelte sound
         const audioBlob = new Blob([audioArrayBuffer], { type: "audio/wav" });
         const audioUrl = URL.createObjectURL(audioBlob);
-        audioSource = audioUrl;
+        revAudio = audioBlob;
+        console.log(revAudio);
       }
     } catch (error) {
       console.error("ERROR:", error);
@@ -39,7 +39,7 @@
 
 <div class="flex justify-center items-center pt-20">
   <Card>
-    <img src="mnij.png" alt="my name is jeff button picture" />
+    <img src="mnij.png" alt="my name is jeff" />
 
     <button
       use:sound={{ src: audioSource, events: ["click"] }}

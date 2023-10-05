@@ -39,7 +39,8 @@
           Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
         </GradientButton>
       </Card>
-      <Card href="/" class="mb-4">
+
+      <Card href="https://github.com/Jensen-holm/g3n-wrapper" class="mb-4">
         <img
           src="g3n-wrapper-screenshot.png"
           alt="graphics engine screenshot"
@@ -63,6 +64,36 @@
           Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
         </GradientButton>
       </Card>
+
+      <Card
+        href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
+        class="mb-4"
+      >
+        <img
+          src="sim.png"
+          alt="Monte Carlo Baseball Time Machine"
+          class="w-full h-auto object-contain"
+        />
+        <h5
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Monte Carlo Baseball Time Machine
+        </h5>
+        <p
+          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
+        >
+          Use a Monte Carlo Baseball simulator that I built to see how
+          professional baseball teams from different era's stack up against each
+          other.
+        </p>
+        <GradientButton
+          class="w-fit"
+          href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
+        >
+          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
+        </GradientButton>
+      </Card>
+
       <Card href="/audio_reverse" class="mb-4">
         <img
           src="reverse.png"
