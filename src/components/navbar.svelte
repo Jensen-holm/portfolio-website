@@ -28,7 +28,6 @@
     <NavHamburger />
     <NavUl>
       <NavLi href="/" active={true}>Home</NavLi>
-      <NavLi href="/audio_reverse">Audio Reverse</NavLi>
       <NavLi href="/about">About</NavLi>
       <NavLi href="/contact">Contact</NavLi>
     </NavUl>

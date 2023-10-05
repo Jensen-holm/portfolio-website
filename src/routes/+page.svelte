@@ -3,7 +3,7 @@
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 </script>
 
-<div>
+<div class="min-h-screen h-screen">
   <div class="pt-10 pb-5">
     <div class="text-center">
       <Heading
@@ -15,84 +15,77 @@
     </div>
   </div>
 
-  <div
-    class="h-screen grid grid-cols-2 gap-x-0 gap-y-0 justify-items-center items-center mt-10 mb-10 mx-auto w-6/12"
-  >
-    <div class="">
-      <Card class="pt-4">
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Reversing Audio Files
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          Reversing audio files and listening them in reverse can be fun. Try it
-          and see if you find any hidden messages in any .wav files you have ...
-        </p>
-        <GradientButton class="w-fit" href="/audio_reverse">
-          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
-    </div>
-    <div class="mx-5">
-      <Card class="pt-4">
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Reversing Audio Files
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          Reversing audio files and listening them in reverse can be fun. Try it
-          and see if you find any hidden messages in any .wav files you have ...
-        </p>
-        <GradientButton class="w-fit" href="/audio_reverse">
-          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
-    </div>
-    <div class="mx-5">
-      <Card class="pt-4">
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Neural Network from scratch
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          I implemented algorithms to build a neural network from scratch. Do
-          some hyper parameter tuning with this neural network on the iris
-          dataset.
-        </p>
-        <GradientButton class="w-fit" href="/audio_reverse">
-          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
-    </div>
-    <div class="mx-5">
-      <Card class="pt-4">
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          G3N Graphics Library Wrapper
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          I am working on a wrapper for the G3N graphics engine library with a
-          built in physics engine. Written in Go
-        </p>
-        <GradientButton
-          class="w-fit"
-          href="https://github.com/Jensen-holm/g3n-wrapper"
-        >
-          Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
-    </div>
+  <div class="card-grid p-4">
+    <Card href="/" class="mb-4">
+      <img
+        src="tree-backprop.png"
+        alt="Neural Network from scratch"
+        class="w-full h-auto object-contain"
+      />
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        Neural Network from scratch
+      </h5>
+      <p
+        class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
+      >
+        I implemented algorithms to build a neural network from scratch. Do some
+        hyper parameter tuning with this neural network on the iris dataset.
+      </p>
+      <GradientButton class="w-fit" href="/audio_reverse">
+        Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
+      </GradientButton>
+    </Card>
+    <Card href="/" class="mb-4">
+      <img
+        src="g3n-wrapper-screenshot.png"
+        alt="graphics engine screenshot"
+        class="w-full h-auto object-contain"
+      />
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        G3N graphics engine wrapper & physics engine
+      </h5>
+      <p
+        class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
+      >
+        I implemented algorithms to build a neural network from scratch. Do some
+        hyper parameter tuning with this neural network on the iris dataset.
+      </p>
+      <GradientButton class="w-fit" href="/audio_reverse">
+        Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
+      </GradientButton>
+    </Card>
+    <Card href="/" class="mb-4">
+      <img
+        src="reverse.png"
+        alt="uno reverse your audio"
+        class="w-full h-auto object-contain"
+      />
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        Audio Reverse
+      </h5>
+      <p
+        class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
+      >
+        Pull the Uno-Reverse card on your audio by interacting with this REST
+        API that I built.
+      </p>
+      <GradientButton class="w-fit" href="/audio_reverse">
+        Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
+      </GradientButton>
+    </Card>
   </div>
 </div>
+
+<style>
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+  }
+</style>
