@@ -20,11 +20,17 @@
         body: formData,
       });
 
-      // Handle the response here
-      // You can parse the response as needed.
-      // For example, if it's a JSON response:
-      const responseData = await response.json();
-      console.log(responseData);
+      // right now this SHOULD overwrite audioSource which starts as the
+      // original jeff audio. so now audioSource = reversed jeff so the normal
+      // play button will hopefull play in reverse after this code below runs
+      if (response.ok) {
+        const audioArrayBuffer = await response.arrayBuffer();
+        // Do something with the audio data here
+        // For example, you can create a Blob and play it with Svelte sound
+        const audioBlob = new Blob([audioArrayBuffer], { type: "audio/wav" });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        audioSource = audioUrl;
+      }
     } catch (error) {
       console.error("ERROR:", error);
     }
@@ -36,7 +42,7 @@
     <img src="mnij.png" alt="my name is jeff button picture" />
 
     <button
-      use:sound={{ src: jeff, events: ["click"] }}
+      use:sound={{ src: audioSource, events: ["click"] }}
       type="button"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >

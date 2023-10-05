@@ -63,7 +63,7 @@
           Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
         </GradientButton>
       </Card>
-      <Card href="/" class="mb-4">
+      <Card href="/audio_reverse" class="mb-4">
         <img
           src="reverse.png"
           alt="uno reverse your audio"
@@ -82,6 +82,31 @@
         </p>
         <GradientButton class="w-fit" href="/audio_reverse">
           Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
+        </GradientButton>
+      </Card>
+      <Card href="/" class="mb-4">
+        <img
+          src="svelte-kit-tailwind.jpg"
+          alt="This website built with svelte kit and tailwind"
+          class="w-full h-auto object-contain"
+        />
+        <h5
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          This Very Website
+        </h5>
+        <p
+          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
+        >
+          This website was built with Svelte-Kit, tailwind, and Flowbite-svelte
+          to be lightweight, responsive and organized without sacraficing ease
+          of development
+        </p>
+        <GradientButton
+          class="w-fit"
+          href="https://github.com/Jensen-holm/website"
+        >
+          Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
         </GradientButton>
       </Card>
     </div>
