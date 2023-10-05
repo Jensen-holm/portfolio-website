@@ -16,7 +16,7 @@
   </div>
 
   <div class="card-grid p-4">
-    <Card href="/" class="mb-4">
+    <Card href="/neural_network" class="mb-4">
       <img
         src="tree-backprop.png"
         alt="Neural Network from scratch"
@@ -54,7 +54,10 @@
         I implemented algorithms to build a neural network from scratch. Do some
         hyper parameter tuning with this neural network on the iris dataset.
       </p>
-      <GradientButton class="w-fit" href="/audio_reverse">
+      <GradientButton
+        class="w-fit"
+        href="https://github.com/Jensen-holm/g3n-wrapper.git"
+      >
         Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
       </GradientButton>
     </Card>
