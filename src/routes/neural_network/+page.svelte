@@ -52,7 +52,7 @@
 
   function trainNeuralNet() {
     fetch(
-      "https://data-mining-from-scratch-backend.onrender.com/neural-network",
+      "https://machine-learning-from-scratch-jensen.onrender.com/neural-network",
       {
         method: "POST",
         headers: headers,
@@ -101,7 +101,7 @@
 </div>
 
 <div class="flex justify-center items-center pt-10 pb-20">
-  <GradientButton color="pinkToOrange" class="w-fit">
+  <GradientButton on:click={trainNeuralNet} color="pinkToOrange" class="w-fit">
     Train Neural Network<ArrowRightOutline
       class="w-3.5 h-3.5 ml-2 text-white"
     />
