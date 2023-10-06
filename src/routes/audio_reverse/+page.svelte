@@ -1,7 +1,6 @@
 <script lang="ts">
   import blaster from "../../static/audio/blaster-firing.wav";
   import mail from "../../static/audio/youGotmail.wav";
-
   import { Alert } from "flowbite-svelte";
   import { InfoCircleSolid } from "flowbite-svelte-icons";
   import PlayableAudio from "../../components/playable_audio.svelte";
