@@ -1,74 +1,40 @@
 <script lang="ts">
-  import { Card } from "flowbite-svelte";
-  import { sound } from "svelte-sound";
-  import fire from "../../static/audio/fire.wav";
+  import blaster from "../../static/audio/blaster-firing.wav";
+  import bart from "../../static/audio/bartlaf3.wav";
+  import nfl from "../../static/audio/nfl-on-espn.wav";
 
-  let audioSource = fire;
-  let reversedAudioBlob: Blob | null = null;
-  let endpoint = "https://audio-reverse.onrender.com/reverse_wav";
-
-  function playReversed() {
-    if (reversedAudioBlob) {
-      const ctx = new AudioContext();
-      const elem = new Audio();
-
-      elem.src = URL.createObjectURL(reversedAudioBlob);
-      elem.controls = true;
-      elem.autoplay = true;
-
-      document.body.appendChild(elem); // Add audio element to the page
-
-      elem.addEventListener("ended", () => {
-        ctx.close();
-        document.body.removeChild(elem); // Remove audio element when playback ends
-      });
-    }
-  }
-
-  async function reverseAudio() {
-    try {
-      const fileResponse = await fetch(audioSource);
-      const audioBlob = await fileResponse.blob();
-
-      const formData = new FormData();
-      // Use the same field name "audioFile" that your Flask backend expects
-      formData.append("contents", audioBlob, "my-name-is-jeff.wav");
-
-      const response = await fetch(endpoint, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        const audioArrayBuffer = await response.arrayBuffer();
-        const audioBlob = new Blob([audioArrayBuffer], { type: "audio/wav" });
-        // const audioUrl = URL.createObjectURL(audioBlob);
-        reversedAudioBlob = audioBlob;
-      }
-    } catch (error) {
-      console.error("ERROR:", error);
-    }
-  }
+  import { Alert } from "flowbite-svelte";
+  import { InfoCircleSolid } from "flowbite-svelte-icons";
+  import PlayableAudio from "../../components/playable_audio.svelte";
 </script>
 
-<div class="flex justify-center items-center pt-20">
-  <Card>
-    <img src="mnij.png" alt="my name is jeff" />
+<!-- display the alert that the user has to hit the reverse button first -->
+<div class="flex justify-center items-center">
+  <div class="flex justify-center items-center pt-10 w-6/12">
+    <Alert border>
+      <InfoCircleSolid slot="icon" class="w-4 h-4" />
+      <span class="font-medium">Default alert!</span>
+      To hear the audio play in reverse, you have to press the reverse button to
+      send the audio to my API. Then a new 'Play Reversed Audio' button will appear.
+    </Alert>
+  </div>
+</div>
 
-    <button
-      use:sound={{ src: audioSource, events: ["click"] }}
-      type="button"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    >
-      Play
-    </button>
-    <button
-      on:click={reverseAudio}
-      type="button"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    >
-      Reverse
-    </button>
-  </Card>
-  <button on:click={playReversed}>Play Reversed Audio</button>
+<div class="flex justify-center items-center pt-20">
+  <div class="grid grid-cols-2 space-x-5">
+    <div class="pb-20">
+      <PlayableAudio
+        audioImgPath="stormtrooper.jpg"
+        audioSource={blaster}
+        audioName="Star Wars Blaster"
+      />
+    </div>
+    <div class="pb-20">
+      <PlayableAudio
+        audioImgPath="bsimp.webp"
+        audioSource={bart}
+        audioName="Bart Laugh"
+      />
+    </div>
+  </div>
 </div>
