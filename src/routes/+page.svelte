@@ -66,8 +66,8 @@
         projectName="My Portfolio Website"
         projectImgPath="svelte-kit-tailwind.jpg"
         buttonText="Source code"
-        buttonHref="https://github.com/Jensen-holm/portfolio-website"
-        href="/"
+        buttonHref="/webpage"
+        href="/webpage"
         description=""
       />
     </div>

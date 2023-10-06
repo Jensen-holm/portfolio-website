@@ -10,7 +10,7 @@
   export let buttonHref: string;
 </script>
 
-<Card {href} class="mb-4">
+<Card {href} target="_blank" class="mb-4">
   <img
     src={projectImgPath}
     alt="Neural Network from scratch"
@@ -24,7 +24,7 @@
   <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
     {description}
   </p>
-  <GradientButton class="w-fit" href={buttonHref}>
+  <GradientButton class="w-fit" href={buttonHref} target="_blank">
     {buttonText}<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
   </GradientButton>
 </Card>
