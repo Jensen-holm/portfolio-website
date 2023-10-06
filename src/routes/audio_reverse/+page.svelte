@@ -1,14 +1,29 @@
-<script lang="ts">
-  import * as Tone from "tone";
+<script>
   import { Card } from "flowbite-svelte";
   import { sound } from "svelte-sound";
   import jeff from "../../static/audio/my-name-is-jeff.wav";
 
   let audioSource = jeff;
-  let revAudio: Blob | null = null;
+  let reversedAudioBlob = null;
   let endpoint = "https://audio-reverse.onrender.com/reverse_wav";
 
-  console.log(jeff);
+  function playReversed() {
+    if (reversedAudioBlob) {
+      const ctx = new AudioContext();
+      const elem = new Audio();
+
+      elem.src = URL.createObjectURL(reversedAudioBlob);
+      elem.controls = true;
+      elem.autoplay = true;
+
+      document.body.appendChild(elem); // Add audio element to the page
+
+      elem.addEventListener("ended", () => {
+        ctx.close();
+        document.body.removeChild(elem); // Remove audio element when playback ends
+      });
+    }
+  }
 
   async function reverseAudio() {
     try {
@@ -27,9 +42,8 @@
       if (response.ok) {
         const audioArrayBuffer = await response.arrayBuffer();
         const audioBlob = new Blob([audioArrayBuffer], { type: "audio/wav" });
-        const audioUrl = URL.createObjectURL(audioBlob);
-        revAudio = audioBlob;
-        console.log(revAudio);
+        // const audioUrl = URL.createObjectURL(audioBlob);
+        reversedAudioBlob = audioBlob;
       }
     } catch (error) {
       console.error("ERROR:", error);
@@ -56,4 +70,5 @@
       Reverse
     </button>
   </Card>
+  <button on:click={playReversed}>Play Reversed Audio</button>
 </div>
