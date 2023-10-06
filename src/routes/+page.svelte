@@ -10,7 +10,7 @@
         tag="h2"
         class="mb-4"
         customSize="text-4xl font-extrabold  md:text-5xl lg:text-6xl"
-        >Projects</Heading
+        >Project Portfolio</Heading
       >
     </div>
   </div>
@@ -90,6 +90,29 @@
           class="w-fit"
           href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         >
+          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
+        </GradientButton>
+      </Card>
+
+      <Card href="clustering" class="mb-4">
+        <img
+          src="iris.png"
+          alt="kmeans clustering visualization"
+          class="w-full h-auto object-contain"
+        />
+        <h5
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Clustering Algorithms from scratch
+        </h5>
+        <p
+          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
+        >
+          I've implemented a couple of different clustering methods from
+          scratch, compare k-Medoid clustering to K-Means clustering on the iris
+          dataset.
+        </p>
+        <GradientButton class="w-fit" href="/clustering">
           Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
         </GradientButton>
       </Card>

@@ -52,7 +52,7 @@
 
   function trainNeuralNet() {
     fetch(
-      "https://data-mining-from-scratch-backend.onrender.com/neural-network",
+      "https://machine-learning-from-scratch-jensen.onrender.com/neural-network",
       {
         method: "POST",
         headers: headers,
