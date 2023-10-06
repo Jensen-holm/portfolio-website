@@ -115,7 +115,7 @@
           Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
         </GradientButton>
       </Card>
-      <Card href="/" class="mb-4">
+      <Card href="/webpage" class="mb-4">
         <img
           src="svelte-kit-tailwind.jpg"
           alt="This website built with svelte kit and tailwind"

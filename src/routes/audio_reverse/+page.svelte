@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import { Card } from "flowbite-svelte";
   import { sound } from "svelte-sound";
-  import jeff from "../../static/audio/my-name-is-jeff.wav";
+  import fire from "../../static/audio/fire.wav";
 
-  let audioSource = jeff;
-  let reversedAudioBlob = null;
+  let audioSource = fire;
+  let reversedAudioBlob: Blob | null = null;
   let endpoint = "https://audio-reverse.onrender.com/reverse_wav";
 
   function playReversed() {
