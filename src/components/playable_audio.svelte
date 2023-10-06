@@ -1,8 +1,6 @@
 <script lang="ts">
   import { sound } from "svelte-sound";
-  import { ButtonGroup, Button, Card } from "flowbite-svelte";
-  import { Alert } from "flowbite-svelte";
-  import { InfoCircleSolid } from "flowbite-svelte-icons";
+  import { Card, Indicator, Badge } from "flowbite-svelte";
 
   export let audioSource: string;
   export let audioImgPath: string;
@@ -48,6 +46,10 @@
         const audioBlob = new Blob([audioArrayBuffer], { type: "audio/wav" });
         reversedAudioBlob = audioBlob;
       }
+
+      if (!response.ok) {
+        badResponse = true;
+      }
     } catch (error) {
       badResponse = true;
     }
@@ -60,6 +62,18 @@
       class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
     >
       {audioName}
+      {#if badResponse}
+        <Badge color="red">
+          <Indicator color="red" />
+          Internal Server Error</Badge
+        >
+      {/if}
+
+      {#if !badResponse}
+        <Badge color="green">
+          <Indicator color="green" />
+        </Badge>
+      {/if}
     </h5>
     <div class="inline-flex rounded-md shadow-sm" role="group">
       <button
