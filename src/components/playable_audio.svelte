@@ -1,6 +1,6 @@
 <script lang="ts">
   import { sound } from "svelte-sound";
-  import { ButtonGroup, Card } from "flowbite-svelte";
+  import { ButtonGroup, Button, Card } from "flowbite-svelte";
   import { Alert } from "flowbite-svelte";
   import { InfoCircleSolid } from "flowbite-svelte-icons";
 
@@ -61,36 +61,36 @@
     >
       {audioName}
     </h5>
-    <ButtonGroup>
+    <div class="inline-flex rounded-md shadow-sm" role="group">
       <button
+        type="button"
         use:sound={{ src: audioSource, events: ["click"] }}
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >Play</button
       >
-        Play
-      </button>
       <button
-        on:click={reverseAudio}
         type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        on:click={reverseAudio}
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >Reverse</button
       >
-        Reverse
-      </button>
       {#if reversedAudioBlob}
         <button
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          on:click={playReversed}
           type="button"
-          on:click={playReversed}>Play Reversed</button
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          >Play Reversed</button
         >
       {/if}
-    </ButtonGroup>
-    <!-- if there was a bad response from the backend -->
-    {#if badResponse}
-      <Alert border>
-        <InfoCircleSolid slot="icon" class="w-4 h-4" />
-        <span class="font-medium">Server Error!</span>
-        Bad response from server. Try again.
-      </Alert>
-    {/if}
+
+      {#if !reversedAudioBlob}
+        <button
+          on:click={playReversed}
+          type="button"
+          class="text-white cursor-not-allowed bg-blue-700focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800"
+          >Play Reversed</button
+        >
+      {/if}
+    </div>
   </Card>
 </div>
