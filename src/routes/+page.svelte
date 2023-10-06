@@ -1,6 +1,6 @@
 <script>
-  import { Card, GradientButton, Heading } from "flowbite-svelte";
-  import { ArrowRightOutline } from "flowbite-svelte-icons";
+  import { Heading } from "flowbite-svelte";
+  import Project from "../components/project.svelte";
 </script>
 
 <div class="min-h-screen h-screen">
@@ -17,152 +17,59 @@
 
   <div class="flex justify-center items-center">
     <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
-      <Card href="/neural_network" class="mb-4">
-        <img
-          src="tree-backprop.png"
-          alt="Neural Network from scratch"
-          class="w-full h-auto object-contain"
-        />
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Neural Network from scratch
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          I implemented algorithms to build a neural network from scratch. Do
-          some hyper parameter tuning with this neural network on the iris
-          dataset.
-        </p>
-        <GradientButton class="w-fit" href="/audio_reverse">
-          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
+      <Project
+        projectName="Neural Network from scratch"
+        projectImgPath="tree-backprop.png"
+        buttonText="Try it"
+        buttonHref="/neural_network"
+        href="/neural_network"
+        description="An application of algorithms such as backprop written from scratch."
+      />
 
-      <Card href="https://github.com/Jensen-holm/g3n-wrapper" class="mb-4">
-        <img
-          src="g3n-wrapper-screenshot.png"
-          alt="graphics engine screenshot"
-          class="w-full h-auto object-contain"
-        />
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          G3N wrapper & physics engine
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          I built a wrapper for the G3N graphics engine in Go with a built in
-          physics engine.
-        </p>
-        <GradientButton
-          class="w-fit"
-          href="https://github.com/Jensen-holm/g3n-wrapper.git"
-        >
-          Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
+      <Project
+        projectName="G3N Graphics library wrapper & physics engine"
+        projectImgPath="g3n-wrapper-screenshot.png"
+        buttonText="Source code"
+        buttonHref="https://github.com/Jensen-holm/g3n-wrapper"
+        href="https://github.com/Jensen-holm/g3n-wrapper"
+        description="Wrapper package with built in physics engine for the G3N graphics package in Go."
+      />
 
-      <Card
+      <Project
+        projectName="Monte Carlo baseball time machine"
+        projectImgPath="sim.png"
+        buttonText="Try it"
+        buttonHref="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
-        class="mb-4"
-      >
-        <img
-          src="sim.png"
-          alt="Monte Carlo Baseball Time Machine"
-          class="w-full h-auto object-contain"
-        />
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Monte Carlo Baseball Time Machine
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          Use a Monte Carlo Baseball simulator that I built to see how
-          professional baseball teams from different era's stack up against each
-          other.
-        </p>
-        <GradientButton
-          class="w-fit"
-          href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
-        >
-          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
+        description="Baseball Monte Carlo simulation web-app. Simulate baseball teams from different era's against each other for up to 1,620 games"
+      />
 
-      <Card href="clustering" class="mb-4">
-        <img
-          src="iris.png"
-          alt="kmeans clustering visualization"
-          class="w-full h-auto object-contain"
-        />
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Clustering Algorithms from scratch
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          I've implemented a couple of different clustering methods from
-          scratch, compare k-Medoid clustering to K-Means clustering on the iris
-          dataset.
-        </p>
-        <GradientButton class="w-fit" href="/clustering">
-          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
+      <Project
+        projectName="Audio Reverse"
+        projectImgPath="reverse.png"
+        buttonText="Try it"
+        buttonHref="/audio_reverse"
+        href="/audio_reverse"
+        description="REST API that reverses audio files."
+      />
 
-      <Card href="/audio_reverse" class="mb-4">
-        <img
-          src="reverse.png"
-          alt="uno reverse your audio"
-          class="w-full h-auto object-contain"
-        />
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Audio Reverse
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          Pull the Uno-Reverse card on your audio by interacting with this REST
-          API that I built.
-        </p>
-        <GradientButton class="w-fit" href="/audio_reverse">
-          Try it<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
-      <Card href="/webpage" class="mb-4">
-        <img
-          src="svelte-kit-tailwind.jpg"
-          alt="This website built with svelte kit and tailwind"
-          class="w-full h-auto object-contain"
-        />
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          This Very Website
-        </h5>
-        <p
-          class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight"
-        >
-          This website was built with Svelte-Kit, tailwind, and Flowbite-svelte
-          to be lightweight, responsive and organized without sacraficing ease
-          of development
-        </p>
-        <GradientButton
-          class="w-fit"
-          href="https://github.com/Jensen-holm/website"
-        >
-          Source Code<ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
-        </GradientButton>
-      </Card>
+      <Project
+        projectName="Clustering from scratch"
+        projectImgPath="iris.png"
+        buttonText="Try it"
+        buttonHref="/clustering"
+        href="/clustering"
+        description="An application of clustering algorithms from scratch. Test K-means versus K-medoid clustering algorithms."
+      />
+
+      <Project
+        projectName="My Portfolio Website"
+        projectImgPath="svelte-kit-tailwind.jpg"
+        buttonText="Source code"
+        buttonHref="https://github.com/Jensen-holm/portfolio-website"
+        href="/"
+        description=""
+      />
     </div>
   </div>
 </div>
