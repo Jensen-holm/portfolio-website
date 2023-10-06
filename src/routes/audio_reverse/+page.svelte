@@ -1,7 +1,7 @@
 <script lang="ts">
   import blaster from "../../static/audio/blaster-firing.wav";
   import bart from "../../static/audio/bartlaf3.wav";
-  import nfl from "../../static/audio/nfl-on-espn.wav";
+  import mail from "../../static/audio/youGotmail.wav";
 
   import { Alert } from "flowbite-svelte";
   import { InfoCircleSolid } from "flowbite-svelte-icons";
@@ -21,7 +21,7 @@
 </div>
 
 <div class="flex justify-center items-center pt-20">
-  <div class="grid grid-cols-2 space-x-5">
+  <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 p-4">
     <div class="pb-20">
       <PlayableAudio
         audioImgPath="stormtrooper.jpg"
@@ -29,11 +29,12 @@
         audioName="Star Wars Blaster"
       />
     </div>
+
     <div class="pb-20">
       <PlayableAudio
-        audioImgPath="bsimp.webp"
-        audioSource={bart}
-        audioName="Bart Laugh"
+        audioImgPath="aol.jpg"
+        audioSource={mail}
+        audioName="AOL"
       />
     </div>
   </div>
