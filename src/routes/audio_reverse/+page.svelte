@@ -1,6 +1,5 @@
 <script lang="ts">
   import blaster from "../../static/audio/blaster-firing.wav";
-  import bart from "../../static/audio/bartlaf3.wav";
   import mail from "../../static/audio/youGotmail.wav";
 
   import { Alert } from "flowbite-svelte";
