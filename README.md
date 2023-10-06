@@ -1,8 +1,8 @@
 # Portfolio Website
 
-![]()
+![]("https://github.com/Jensen-holm/portfolio-website/blob/main/phone.gif")
 
-![]()
+![]("https://github.com/Jensen-holm/portfolio-website/blob/main/desktop.gif")
 
 
 ### Dependencies
