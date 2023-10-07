@@ -11,9 +11,10 @@
   <div class="flex justify-center items-center pt-10 w-6/12">
     <Alert border>
       <InfoCircleSolid slot="icon" class="w-4 h-4" />
-      <span class="font-medium">Default alert!</span>
-      To hear the audio play in reverse, you have to press the reverse button to
-      send the audio to my API. Then a new 'Play Reversed Audio' button will appear.
+      <!-- <span class="font-medium">Warning!</span> -->
+      In order to hear the audio play in reverse, you have to first press the 'Reverse'
+      button that sends the audio file to my audio reverse API. A green indicator
+      will appear when you are able to press 'Play Reverse'.
     </Alert>
   </div>
 </div>

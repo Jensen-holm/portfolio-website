@@ -1,6 +1,6 @@
 <script lang="ts">
   import { sound } from "svelte-sound";
-  import { Card, Indicator, Badge } from "flowbite-svelte";
+  import { Card, Indicator, Badge, Spinner } from "flowbite-svelte";
 
   export let audioSource: string;
   export let audioImgPath: string;
@@ -8,7 +8,6 @@
 
   let reversedAudioBlob: Blob | null;
   let endpoint = "https://audio-reverse.onrender.com/reverse_wav";
-  let badResponse: boolean = false;
 
   function playReversed() {
     if (reversedAudioBlob) {
@@ -27,20 +26,23 @@
     }
   }
 
+  let badResponse: boolean = false;
+  let isLoading: boolean = false;
   async function reverseAudio() {
     try {
+      isLoading = true;
       const fileResponse = await fetch(audioSource);
       const audioBlob = await fileResponse.blob();
 
       const formData = new FormData();
-      // Use the same field name "audioFile" that your Flask backend expects
-      formData.append("contents", audioBlob, "my-name-is-jeff.wav");
+      formData.append("contents", audioBlob);
 
       const response = await fetch(endpoint, {
         method: "POST",
         body: formData,
       });
 
+      isLoading = false;
       if (response.ok) {
         const audioArrayBuffer = await response.arrayBuffer();
         const audioBlob = new Blob([audioArrayBuffer], { type: "audio/wav" });
@@ -69,10 +71,12 @@
         >
       {/if}
 
-      {#if !badResponse}
-        <Badge color="green">
-          <Indicator color="green" />
-        </Badge>
+      {#if reversedAudioBlob}
+        <Indicator color="green" />
+      {/if}
+
+      {#if isLoading}
+        <Spinner size="5" />
       {/if}
     </h5>
     <div class="inline-flex rounded-md shadow-sm" role="group">
@@ -101,7 +105,7 @@
         <button
           on:click={playReversed}
           type="button"
-          class="text-white cursor-not-allowed bg-blue-700focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800"
+          class="text-white cursor-not-allowed bg-blue-700focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-400 focus:outline-none dark:focus:ring-blue-800"
           >Play Reversed</button
         >
       {/if}

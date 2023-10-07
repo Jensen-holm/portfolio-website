@@ -1,5 +1,12 @@
 <script lang="ts">
-  import { Label, Select, GradientButton, Img, Spinner } from "flowbite-svelte";
+  import {
+    Label,
+    Select,
+    GradientButton,
+    Img,
+    Spinner,
+    ImagePlaceholder,
+  } from "flowbite-svelte";
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 
   interface trainingResult {
@@ -127,6 +134,9 @@
 {#if isLoading}
   <div class="flex justify-center items-center">
     <Spinner size="10" />
+  </div>
+  <div class="flex justify-center items-center pt-20 pb-20">
+    <ImagePlaceholder />
   </div>
 {/if}
 
