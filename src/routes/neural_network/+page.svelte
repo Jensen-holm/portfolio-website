@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Label, Select, GradientButton } from "flowbite-svelte";
+  import { Label, Select, GradientButton, Img, Spinner } from "flowbite-svelte";
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 
   let activation: string = "tanh";
@@ -51,7 +51,9 @@
     "Content-Type": "application/json",
   };
 
-  function trainNeuralNet() {
+  let isLoading: boolean = false;
+  async function trainNeuralNet() {
+    isLoading = true;
     fetch(
       "https://machine-learning-from-scratch-jensen.onrender.com/neural-network",
       {
@@ -63,10 +65,11 @@
       .then((response) => response.json())
       .then((modelData) => {
         responseData = modelData;
-        console.log(modelData);
+        isLoading = false;
       })
       .catch((error) => {
         console.error("Error:", error);
+        isLoading = false;
       });
   }
 </script>
@@ -110,7 +113,14 @@
   </GradientButton>
 </div>
 
-<!-- Display the image -->
-{#if responseData && responseData.plt_data}
-  <img src={`data:image/png;base64,${responseData.plt_data}`} alt="Plot" />
+{#if isLoading}
+  <div class="flex justify-center items-center">
+    <Spinner size="10" />
+  </div>
+{/if}
+
+{#if responseData && responseData.plt_data && !isLoading}
+  <div class="flex justify-center items-center">
+    <Img src={`data:image/png;base64,${responseData.plt_data}`} alt="Plot" />
+  </div>
 {/if}
