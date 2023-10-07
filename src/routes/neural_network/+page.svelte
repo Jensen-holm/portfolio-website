@@ -8,6 +8,8 @@
     ImagePlaceholder,
     P,
     Heading,
+    List,
+    Li,
   } from "flowbite-svelte";
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 
@@ -100,7 +102,7 @@
 
 <div>
   <div class="flex justify-center items-center pt-20 pb-20">
-    <Heading class="text-center">Neural Network</Heading>
+    <Heading tag="h1" class="text-center">Neural Network</Heading>
   </div>
 
   <!-- form input -->
@@ -158,3 +160,64 @@
     <Img src={`data:image/png;base64,${responseData.plt_data}`} alt="Plot" />
   </div>
 {/if}
+
+<div class="flex justify-center items-center pb-5">
+  <Heading tag="h4" class="text-center">Parameters</Heading>
+</div>
+
+<div class="flex justify-center items-center">
+  <List list="none">
+    <Li>
+      <Heading tag="h5" class="text-left" size="3xl">Epochs</Heading>
+      <P class="pb-10 text-left"
+        >Think of epochs as rounds of training for your neural network. Each
+        epoch <br />
+        means the network has gone through the entire dataset once, learning and
+        <br />
+        adjusting its parameters. More epochs can lead to better accuracy, but too
+        <br />
+        many can also overfit the model to your training data. <br />
+      </P>
+    </Li>
+
+    <Li>
+      <Heading tag="h5" class="text-left" size="3xl"
+        >Activation Function</Heading
+      >
+      <P class="pb-10 text-left">
+        Activation functions introduce non-linearity to your neural network, <br
+        />
+        allowing it to model complex relationships in data. The choice of <br />
+        activation function (like sigmoid, ReLU, or tanh) affects how the <br />
+        network processes and passes information between its layers. <br />
+      </P>
+    </Li>
+
+    <Li>
+      <Heading tag="h5" class="text-left" size="3xl">Hidden Size</Heading>
+      <P class="pb-10 text-left">
+        This refers to the number of neurons or units in the hidden layer(s) <br
+        />
+        of your neural network. More hidden units can make the network more
+        <br />
+        capable of learning complex patterns, but it can also make training
+        <br />
+        slower and increase the risk of overfitting. <br />
+      </P>
+    </Li>
+
+    <Li>
+      <Heading tag="h5" class="text-left" size="3xl">Learning Rate</Heading>
+      <P class="pb-10 text-left">
+        Imagine this as the step size your neural network takes during <br />
+        training. It determines how much the network's parameters are updated
+        <br />
+        based on the error it observes. A higher learning rate means bigger
+        <br />
+        steps but can lead to overshooting the optimal values, while a smaller
+        <br />
+        learning rate may take longer to converge or find the best values.</P
+      >
+    </Li>
+  </List>
+</div>
