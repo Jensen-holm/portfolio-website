@@ -164,7 +164,6 @@
 <div class="flex justify-center items-center pb-5">
   <Heading tag="h4" class="text-center">Parameters</Heading>
 </div>
-
 <div class="flex justify-center items-center">
   <List list="none">
     <Li>
@@ -218,6 +217,111 @@
         <br />
         learning rate may take longer to converge or find the best values.</P
       >
+    </Li>
+  </List>
+</div>
+
+<div class="flex justify-center items-center pb-5">
+  <Heading tag="h4" class="text-center text-2xl font-semibold"
+    >The Iris Dataset</Heading
+  >
+</div>
+<div class="flex justify-center items-center mb-10">
+  <List list="none">
+    <Li>
+      <Heading tag="h5" class="text-lg text-left font-semibold mb-2"
+        >Features</Heading
+      >
+      <P>
+        The dataset consists of measurements from 150 iris flowers from three <br
+        />
+        different species: setosa, versicolor, and virginica. Each sample has four
+        <br />
+        features, making it a 4-dimensional dataset. The features are:
+      </P>
+      <List list="none">
+        <Li>
+          <P class="text-center mt-5">Sepal length(in centimeters)</P>
+        </Li>
+        <Li>
+          <P class="text-center">Sepal Width (in centimeters)</P>
+        </Li>
+        <Li>
+          <P class="text-center">Petal Length (in centimeters)</P>
+        </Li>
+        <Li>
+          <P class="text-center">
+            Petal Width (in centimeters) <br />
+          </P>
+        </Li>
+      </List>
+    </Li>
+  </List>
+</div>
+
+<div class="flex justify-center items-center pb-5">
+  <Heading tag="h4" class="text-center text-2xl font-semibold">Results</Heading>
+</div>
+<div class="flex justify-center items-center">
+  <List list="none">
+    <Li>
+      <Heading tag="h5" class="text-lg font-semibold mb-2"
+        >Mean Squared Error (MSE)</Heading
+      >
+      <P class="text-left">
+        MSE is calculated by taking the average of the squared differences <br
+        />
+        between the predicted values and the actual values in your dataset.
+        <br />
+        Mathematically, it can be expressed as: <br />
+      </P>
+      <P class="text-sm mt-5 text-center mb-5"
+        >MSE = Σ(y_actual - y_predicted)² / n</P
+      >
+      <P>Where:</P>
+    </Li>
+    <Li />
+    <List list="none" class="list-inside pl-4 mt-2">
+      <Li>
+        <P size="sm">
+          "y_actual" represents the actual values (the correct flower species in <br
+          />
+          your case) from your dataset.
+        </P>
+      </Li>
+      <Li>
+        <P size="sm">
+          "y_predicted" represents the predicted values (the species predicted <br
+          />
+          by your neural network) for the same data points.
+        </P>
+      </Li>
+      <Li>
+        <P size="sm">
+          "Σ" denotes summation, meaning you add up the squared differences for <br
+          />
+          all data points.
+        </P>
+      </Li>
+      <Li>
+        <P class="mb-5" size="sm"
+          >"n" is the number of data points in your dataset.</P
+        >
+      </Li>
+    </List>
+    <Li class="mb-8">
+      <Heading tag="h6" class="text-lg font-semibold">Interpretation</Heading>
+      <P>
+        MSE provides a measure of how well your neural network's predictions <br
+        />
+        match the actual values. The lower the MSE, the better your model is at
+        <br />
+        making accurate predictions. In other words, a lower MSE indicates that
+        <br />
+        the predicted flower species are closer to the actual species in your
+        <br />
+        dataset.
+      </P>
     </Li>
   </List>
 </div>
