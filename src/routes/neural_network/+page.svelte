@@ -46,6 +46,7 @@
     },
   };
 
+  let responseData: JSON | null = null;
   const headers = {
     "Content-Type": "application/json",
   };
@@ -61,6 +62,7 @@
     )
       .then((response) => response.json())
       .then((modelData) => {
+        responseData = modelData;
         console.log(modelData);
       })
       .catch((error) => {
@@ -107,3 +109,8 @@
     />
   </GradientButton>
 </div>
+
+<!-- Display the image -->
+{#if responseData && responseData.plt_data}
+  <img src={`data:image/png;base64,${responseData.plt_data}`} alt="Plot" />
+{/if}
