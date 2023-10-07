@@ -2,14 +2,23 @@
   import { Label, Select, GradientButton, Img, Spinner } from "flowbite-svelte";
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 
-  let activation: string = "tanh";
+  interface trainingResult {
+    learning_rate: number;
+    epochs: number;
+    plt_data: string;
+    hidden_size: number;
+    activation_func: string;
+    mse: number;
+  }
+
+  let activation = "tanh";
   let activationFuncs = [
     { value: "tanh", name: "tanh" },
     { value: "sinh", name: "sinh" },
     { value: "relu", name: "relu" },
   ];
 
-  let epochs: number = 100;
+  let epochs = 100;
   let epochValues = [
     { value: 100, name: 100 },
     { value: 500, name: 500 },
@@ -18,7 +27,7 @@
     { value: 1500, name: 1500 },
   ];
 
-  let learningRate: number = 0.01;
+  let learningRate = 0.01;
   let leraningRateValues = [
     { value: 0.001, name: 0.001 },
     { value: 0.01, name: 0.01 },
@@ -27,7 +36,7 @@
     { value: 1.0, name: 1.0 },
   ];
 
-  let hiddenSize: number = 8;
+  let hiddenSize = 8;
   const hiddenSizes = [
     { value: 2, name: 2 },
     { value: 4, name: 4 },
@@ -46,12 +55,12 @@
     },
   };
 
-  let responseData: JSON | null = null;
+  let responseData: trainingResult | null = null;
   const headers = {
     "Content-Type": "application/json",
   };
 
-  let isLoading: boolean = false;
+  let isLoading = false;
   async function trainNeuralNet() {
     isLoading = true;
     fetch(
@@ -64,7 +73,9 @@
     )
       .then((response) => response.json())
       .then((modelData) => {
-        responseData = modelData;
+        if (modelData) {
+          responseData = modelData;
+        }
         isLoading = false;
       })
       .catch((error) => {
@@ -120,7 +131,7 @@
 {/if}
 
 {#if responseData && responseData.plt_data && !isLoading}
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center items-center pt-20 pb-20">
     <Img src={`data:image/png;base64,${responseData.plt_data}`} alt="Plot" />
   </div>
 {/if}
