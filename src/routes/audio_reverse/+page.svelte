@@ -1,6 +1,9 @@
 <script lang="ts">
+  import nfl from "../../static/audio/nfl.wav";
   import blaster from "../../static/audio/blaster-firing.wav";
   import mail from "../../static/audio/youGotmail.wav";
+  import shakeNBake from "../../static/audio/shake-bake.wav";
+
   import { Alert } from "flowbite-svelte";
   import { InfoCircleSolid } from "flowbite-svelte-icons";
   import PlayableAudio from "../../components/playable_audio.svelte";
@@ -23,6 +26,22 @@
   <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 p-4">
     <div class="pb-20">
       <PlayableAudio
+        audioImgPath="aol.jpg"
+        audioSource={mail}
+        audioName="AOL"
+      />
+    </div>
+
+    <div class="pb-20">
+      <PlayableAudio
+        audioImgPath="nfl.webp"
+        audioSource={nfl}
+        audioName="NFL Theme"
+      />
+    </div>
+
+    <div class="pb-20">
+      <PlayableAudio
         audioImgPath="stormtrooper.jpg"
         audioSource={blaster}
         audioName="Star Wars Blaster"
@@ -31,9 +50,9 @@
 
     <div class="pb-20">
       <PlayableAudio
-        audioImgPath="aol.jpg"
-        audioSource={mail}
-        audioName="AOL"
+        audioImgPath="talladega.jpg"
+        audioSource={shakeNBake}
+        audioName="Shake & Bake"
       />
     </div>
   </div>
