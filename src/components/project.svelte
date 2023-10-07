@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card, GradientButton } from "flowbite-svelte";
+  import { Card, GradientButton, Badge } from "flowbite-svelte";
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 
   export let projectName: string;
@@ -8,6 +8,7 @@
   export let description: string;
   export let href: string;
   export let buttonHref: string;
+  export let inProgress: boolean;
 </script>
 
 <Card {href} target="_blank" class="mb-4">
@@ -21,6 +22,11 @@
   >
     {projectName}
   </h5>
+  {#if inProgress}
+    <Badge color="red">In Progress</Badge>
+  {:else}
+    <Badge color="green">Complete</Badge>
+  {/if}
   <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
     {description}
   </p>

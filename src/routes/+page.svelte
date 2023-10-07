@@ -24,6 +24,7 @@
         buttonHref="/neural_network"
         href="/neural_network"
         description="An application of algorithms such as backprop written from scratch."
+        inProgress={false}
       />
 
       <Project
@@ -33,6 +34,7 @@
         buttonHref="https://github.com/Jensen-holm/g3n-wrapper"
         href="https://github.com/Jensen-holm/g3n-wrapper"
         description="Wrapper package with built in physics engine for the G3N graphics package in Go."
+        inProgress={false}
       />
 
       <Project
@@ -42,6 +44,7 @@
         buttonHref="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         description="Baseball Monte Carlo simulation web-app. Simulate baseball teams from different era's against each other for up to 1,620 games"
+        inProgress={false}
       />
 
       <Project
@@ -51,6 +54,7 @@
         buttonHref="/audio_reverse"
         href="/audio_reverse"
         description="REST API that reverses audio files."
+        inProgress={false}
       />
 
       <Project
@@ -60,6 +64,7 @@
         buttonHref="/clustering"
         href="/clustering"
         description="An application of clustering algorithms from scratch. Test K-means versus K-medoid clustering algorithms."
+        inProgress={true}
       />
 
       <Project
@@ -69,6 +74,7 @@
         buttonHref="/webpage"
         href="/webpage"
         description=""
+        inProgress={true}
       />
     </div>
   </div>
