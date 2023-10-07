@@ -1,5 +1,5 @@
 <script>
-  import { Heading } from "flowbite-svelte";
+  import { Heading, P } from "flowbite-svelte";
   import Project from "../components/project.svelte";
 </script>
 

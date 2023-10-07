@@ -6,6 +6,8 @@
     Img,
     Spinner,
     ImagePlaceholder,
+    P,
+    Heading,
   } from "flowbite-svelte";
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 
@@ -17,6 +19,8 @@
     activation_func: string;
     mse: number;
   }
+
+  let results: trainingResult[] = [];
 
   let activation = "tanh";
   let activationFuncs = [
@@ -82,6 +86,8 @@
       .then((modelData) => {
         if (modelData) {
           responseData = modelData;
+          results.push(modelData);
+          console.log(results);
         }
         isLoading = false;
       })
@@ -93,6 +99,10 @@
 </script>
 
 <div>
+  <div class="flex justify-center items-center pt-20 pb-20">
+    <Heading class="text-center">Neural Network</Heading>
+  </div>
+
   <!-- form input -->
   <div class="flex justify-center items-center">
     <div class="grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
@@ -141,7 +151,10 @@
 {/if}
 
 {#if responseData && responseData.plt_data && !isLoading}
-  <div class="flex justify-center items-center pt-20 pb-20">
+  <div class="flex justify-center items-center">
+    <P size="3xl">Mean Squared Error: {responseData.mse.toFixed(4)}</P>
+  </div>
+  <div class="flex justify-center items-center pt-10 pb-20">
     <Img src={`data:image/png;base64,${responseData.plt_data}`} alt="Plot" />
   </div>
 {/if}
