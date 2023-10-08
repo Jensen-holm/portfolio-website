@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start your Svelte Kit app in production mode
-CMD ["npm", "start"]
+CMD ["npm", "run"]
