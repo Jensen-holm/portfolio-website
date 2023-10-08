@@ -11,6 +11,7 @@
     LinkedinSolid,
     FacebookSolid,
     GithubSolid,
+    MailBoxSolid,
   } from "flowbite-svelte-icons";
 </script>
 
@@ -31,18 +32,23 @@
         <GithubSolid />
       </a>
       <a
-        class="p-1"
+        class="p-3"
         href="https://www.linkedin.com/in/jensen-holm-3584981bb/"
         target="_blank"
       >
         <LinkedinSolid />
       </a>
-    </NavBrand>
+      <a href="mailto:jensen.dev.01@gmail.com" target="_blank">
+        <MailBoxSolid />
+      </a></NavBrand
+    >
     <NavHamburger />
     <NavUl>
       <NavLi href="/" active={true}>Projects</NavLi>
       <NavLi href="/about">About</NavLi>
-      <NavLi href="/contact">Contact</NavLi>
+      <NavLi href="mailto:jensen.dev.01@gmail.com" target="_blank"
+        >Contact</NavLi
+      >
     </NavUl>
   </Navbar>
 </div>
