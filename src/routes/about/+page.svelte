@@ -16,8 +16,8 @@
 </div>
 
 <div class="flex justify-center items-center">
-  <div class="pb-20 ml-20 mr-20">
-    <P firstupper class="pt-20 pb-10 text-center"
+  <div class="pb-20 m-10">
+    <P firstupper class="pt-20 pb-10 text-center max-w-[600px]"
       >My name is Jensen Holm, and I am a senior at Grand Valley State
       University (GVSU) majoring in Computer Science with a minor in Data
       Science. I've had quite the college experience so far as a varsity student
@@ -38,9 +38,9 @@
 </div>
 
 <div class="flex justify-center items-center pt-10">
-  <Img src="./jensen-holm-resume.png" class="max-w-lg p-10" />
+  <Img src="./jensen-holm-resume.png" class="sm:max-w-md md:max-w-lg lg:max-w-lg p-10" />
 </div>
-<div class="flex justify-center items-center pb-10">
+<div class="flex justify-center items-center pb-10 m-10">
   <GradientButton color="blue">
     <a download="jensen-holm-resume.pdf" href="/about">Download</a>
     <ArrowDownOutline class="w-3.5 h-3.5 ml-2" />
