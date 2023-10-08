@@ -9,9 +9,10 @@
   export let href: string;
   export let buttonHref: string;
   export let inProgress: boolean;
+  export let newTab: boolean;
 </script>
 
-<Card {href} target="_blank" class="mb-4">
+<Card {href} target={newTab ? "_blank" : ""} class="mb-4">
   <img
     src={projectImgPath}
     alt="Neural Network from scratch"

@@ -161,7 +161,7 @@
   </div>
 {/if}
 
-<div class="flex justify-center items-center">
+<div class="flex justify-center items-center p-10 m-10">
   <div class="max-w-[700px]">
     <div class="flex justify-center items-center pb-5">
       <Heading tag="h4" class="text-center">Parameters</Heading>
