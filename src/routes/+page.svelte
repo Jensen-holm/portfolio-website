@@ -1,5 +1,5 @@
 <script>
-  import { Heading, P } from "flowbite-svelte";
+  import { Heading } from "flowbite-svelte";
   import Project from "../components/project.svelte";
 </script>
 
@@ -23,9 +23,7 @@
         buttonText="Try it"
         buttonHref="/neural_network"
         href="/neural_network"
-        description="An application of algorithms such as backprop written from scratch."
-        inProgress={false}
-        newTab={false}
+        description="An application of a neural network built from scratch, tune hyper parameters on the iris dataset and visualize loss history."
       />
 
       <Project
@@ -41,12 +39,11 @@
 
       <Project
         projectName="Monte Carlo baseball time machine"
-        projectImgPath="sim.png"
+        projectImgPath="bball_time_machine.gif"
         buttonText="Try it"
         buttonHref="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         description="Baseball Monte Carlo simulation web-app. Simulate baseball teams from different era's against each other for up to 1,620 games"
-        inProgress={false}
         newTab={true}
       />
 
@@ -57,8 +54,6 @@
         buttonHref="/audio_reverse"
         href="/audio_reverse"
         description="REST API that reverses audio files."
-        inProgress={false}
-        newTab={false}
       />
 
       <Project
@@ -69,7 +64,6 @@
         href="/clustering"
         description="An application of clustering algorithms from scratch. Test K-means versus K-medoid clustering algorithms."
         inProgress={true}
-        newTab={false}
       />
 
       <Project
@@ -78,9 +72,8 @@
         buttonText="Source code"
         buttonHref="/webpage"
         href="/webpage"
-        description=""
+        description="I built this website using svelte-kit and tailwind css for a simple, lightweight, & responsive application."
         inProgress={true}
-        newTab={false}
       />
     </div>
   </div>

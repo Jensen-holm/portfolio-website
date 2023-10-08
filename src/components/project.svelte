@@ -4,12 +4,12 @@
 
   export let projectName: string;
   export let projectImgPath: string;
-  export let buttonText: string;
-  export let description: string;
+  export let buttonText: string = "Try it";
+  export let description: string = "";
   export let href: string;
   export let buttonHref: string;
-  export let inProgress: boolean;
-  export let newTab: boolean;
+  export let inProgress: boolean = false;
+  export let newTab: boolean = false;
 </script>
 
 <Card {href} target={newTab ? "_blank" : ""} class="mb-4">
