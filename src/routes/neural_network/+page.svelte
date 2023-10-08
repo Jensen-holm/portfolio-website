@@ -161,167 +161,155 @@
   </div>
 {/if}
 
-<div class="flex justify-center items-center pb-5">
-  <Heading tag="h4" class="text-center">Parameters</Heading>
-</div>
 <div class="flex justify-center items-center">
-  <List list="none">
-    <Li>
-      <Heading tag="h5" class="text-left" size="3xl">Epochs</Heading>
-      <P class="pb-10 text-left"
-        >Think of epochs as rounds of training for your neural network. Each
-        epoch <br />
-        means the network has gone through the entire dataset once, learning and
-        <br />
-        adjusting its parameters. More epochs can lead to better accuracy, but too
-        <br />
-        many can also overfit the model to your training data. <br />
-      </P>
-    </Li>
-
-    <Li>
-      <Heading tag="h5" class="text-left" size="3xl"
-        >Activation Function</Heading
-      >
-      <P class="pb-10 text-left">
-        Activation functions introduce non-linearity to your neural network, <br
-        />
-        allowing it to model complex relationships in data. The choice of <br />
-        activation function (like sigmoid, ReLU, or tanh) affects how the <br />
-        network processes and passes information between its layers. <br />
-      </P>
-    </Li>
-
-    <Li>
-      <Heading tag="h5" class="text-left" size="3xl">Hidden Size</Heading>
-      <P class="pb-10 text-left">
-        This refers to the number of neurons or units in the hidden layer(s) <br
-        />
-        of your neural network. More hidden units can make the network more
-        <br />
-        capable of learning complex patterns, but it can also make training
-        <br />
-        slower and increase the risk of overfitting. <br />
-      </P>
-    </Li>
-
-    <Li>
-      <Heading tag="h5" class="text-left" size="3xl">Learning Rate</Heading>
-      <P class="pb-10 text-left">
-        Imagine this as the step size your neural network takes during <br />
-        training. It determines how much the network's parameters are updated
-        <br />
-        based on the error it observes. A higher learning rate means bigger
-        <br />
-        steps but can lead to overshooting the optimal values, while a smaller
-        <br />
-        learning rate may take longer to converge or find the best values.</P
-      >
-    </Li>
-  </List>
-</div>
-
-<div class="flex justify-center items-center pb-5">
-  <Heading tag="h4" class="text-center text-2xl font-semibold"
-    >The Iris Dataset</Heading
-  >
-</div>
-<div class="flex justify-center items-center mb-10">
-  <List list="none">
-    <Li>
-      <Heading tag="h5" class="text-lg text-left font-semibold mb-2"
-        >Features</Heading
-      >
-      <P>
-        The dataset consists of measurements from 150 iris flowers from three <br
-        />
-        different species: setosa, versicolor, and virginica. Each sample has four
-        <br />
-        features, making it a 4-dimensional dataset. The features are:
-      </P>
+  <div class="max-w-[700px]">
+    <div class="flex justify-center items-center pb-5">
+      <Heading tag="h4" class="text-center">Parameters</Heading>
+    </div>
+    <div class="flex justify-center items-center">
       <List list="none">
         <Li>
-          <P class="text-center mt-5">Sepal length(in centimeters)</P>
+          <Heading tag="h5" class="text-left" size="3xl">Epochs</Heading>
+          <P class="pb-10 text-left"
+            >Think of epochs as rounds of training for your neural network. Each
+            epoch means the network has gone through the entire dataset once,
+            learning and adjusting its parameters. More epochs can lead to
+            better accuracy, but too many can also overfit the model to your
+            training data.
+          </P>
         </Li>
+
         <Li>
-          <P class="text-center">Sepal Width (in centimeters)</P>
+          <Heading tag="h5" class="text-left" size="3xl"
+            >Activation Function</Heading
+          >
+          <P class="pb-10 text-left">
+            Activation functions introduce non-linearity to your neural network,
+            allowing it to model complex relationships in data. The choice of
+            activation function (like sigmoid, ReLU, or tanh) affects how the
+            network processes and passes information between its layers.
+          </P>
         </Li>
+
         <Li>
-          <P class="text-center">Petal Length (in centimeters)</P>
+          <Heading tag="h5" class="text-left" size="3xl">Hidden Size</Heading>
+          <P class="pb-10 text-left">
+            This refers to the number of neurons or units in the hidden layer(s)
+            of your neural network. More hidden units can make the network more
+            capable of learning complex patterns, but it can also make training
+            slower and increase the risk of overfitting.
+          </P>
         </Li>
+
         <Li>
-          <P class="text-center">
-            Petal Width (in centimeters) <br />
+          <Heading tag="h5" class="text-left" size="3xl">Learning Rate</Heading>
+          <P class="pb-10 text-left">
+            Imagine this as the step size your neural network takes during
+            training. It determines how much the network's parameters are
+            updated based on the error it observes. A higher learning rate means
+            bigger steps but can lead to overshooting the optimal values, while
+            a smaller learning rate may take longer to converge or find the best
+            values.</P
+          >
+        </Li>
+      </List>
+    </div>
+
+    <div class="flex justify-center items-center pb-5">
+      <Heading tag="h4" class="text-left text-2xl font-semibold"
+        >The Iris Dataset</Heading
+      >
+    </div>
+    <div class="flex justify-center items-center mb-10">
+      <List list="none">
+        <Li>
+          <Heading tag="h5" class="text-lg text-left font-semibold mb-2"
+            >Features</Heading
+          >
+          <P>
+            The dataset consists of measurements from 150 iris flowers from
+            three different species: setosa, versicolor, and virginica. Each
+            sample has four features, making it a 4-dimensional dataset. The
+            features are:
+          </P>
+          <List list="none">
+            <Li>
+              <P class="text-center mt-5">Sepal length(in centimeters)</P>
+            </Li>
+            <Li>
+              <P class="text-center">Sepal Width (in centimeters)</P>
+            </Li>
+            <Li>
+              <P class="text-center">Petal Length (in centimeters)</P>
+            </Li>
+            <Li>
+              <P class="text-center">Petal Width (in centimeters)</P>
+            </Li>
+          </List>
+        </Li>
+      </List>
+    </div>
+
+    <div class="flex justify-center items-center pb-5">
+      <Heading tag="h4" class="text-center text-2xl font-semibold"
+        >Results</Heading
+      >
+    </div>
+    <div class="flex justify-center items-center text-left">
+      <List list="none">
+        <Li>
+          <Heading tag="h5" class="text-lg font-semibold mb-2"
+            >Mean Squared Error (MSE)</Heading
+          >
+          <P class="text-left">
+            MSE is calculated by taking the average of the squared differences
+            between the predicted values and the actual values in your dataset.
+            Mathematically, it can be expressed as:
+          </P>
+          <P class="text-sm mt-5 text-center mb-5"
+            >MSE = Σ(y_actual - y_predicted)² / n</P
+          >
+          <P>Where:</P>
+        </Li>
+        <Li />
+        <List list="none" class="list-inside pl-4 mt-2">
+          <Li>
+            <P size="sm">
+              "y_actual" represents the actual values (the correct flower
+              species in your case) from your dataset.
+            </P>
+          </Li>
+          <Li>
+            <P size="sm">
+              "y_predicted" represents the predicted values (the species
+              predicted by your neural network) for the same data points.
+            </P>
+          </Li>
+          <Li>
+            <P size="sm">
+              "Σ" denotes summation, meaning you add up the squared differences
+              for all data points.
+            </P>
+          </Li>
+          <Li>
+            <P class="mb-5" size="sm"
+              >"n" is the number of data points in your dataset.</P
+            >
+          </Li>
+        </List>
+        <Li class="mb-8">
+          <Heading tag="h6" class="text-lg font-semibold"
+            >Interpretation</Heading
+          >
+          <P>
+            MSE provides a measure of how well your neural network's predictions
+            match the actual values. The lower the MSE, the better your model is
+            at making accurate predictions. In other words, a lower MSE
+            indicates that the predicted flower species are closer to the actual
+            species in your dataset.
           </P>
         </Li>
       </List>
-    </Li>
-  </List>
-</div>
-
-<div class="flex justify-center items-center pb-5">
-  <Heading tag="h4" class="text-center text-2xl font-semibold">Results</Heading>
-</div>
-<div class="flex justify-center items-center">
-  <List list="none">
-    <Li>
-      <Heading tag="h5" class="text-lg font-semibold mb-2"
-        >Mean Squared Error (MSE)</Heading
-      >
-      <P class="text-left">
-        MSE is calculated by taking the average of the squared differences <br
-        />
-        between the predicted values and the actual values in your dataset.
-        <br />
-        Mathematically, it can be expressed as: <br />
-      </P>
-      <P class="text-sm mt-5 text-center mb-5"
-        >MSE = Σ(y_actual - y_predicted)² / n</P
-      >
-      <P>Where:</P>
-    </Li>
-    <Li />
-    <List list="none" class="list-inside pl-4 mt-2">
-      <Li>
-        <P size="sm">
-          "y_actual" represents the actual values (the correct flower species in <br
-          />
-          your case) from your dataset.
-        </P>
-      </Li>
-      <Li>
-        <P size="sm">
-          "y_predicted" represents the predicted values (the species predicted <br
-          />
-          by your neural network) for the same data points.
-        </P>
-      </Li>
-      <Li>
-        <P size="sm">
-          "Σ" denotes summation, meaning you add up the squared differences for <br
-          />
-          all data points.
-        </P>
-      </Li>
-      <Li>
-        <P class="mb-5" size="sm"
-          >"n" is the number of data points in your dataset.</P
-        >
-      </Li>
-    </List>
-    <Li class="mb-8">
-      <Heading tag="h6" class="text-lg font-semibold">Interpretation</Heading>
-      <P>
-        MSE provides a measure of how well your neural network's predictions <br
-        />
-        match the actual values. The lower the MSE, the better your model is at
-        <br />
-        making accurate predictions. In other words, a lower MSE indicates that
-        <br />
-        the predicted flower species are closer to the actual species in your
-        <br />
-        dataset.
-      </P>
-    </Li>
-  </List>
+    </div>
+  </div>
 </div>
