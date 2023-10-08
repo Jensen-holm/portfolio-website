@@ -10,6 +10,7 @@
     Heading,
     List,
     Li,
+    DeviceMockup,
   } from "flowbite-svelte";
   import { ArrowRightOutline } from "flowbite-svelte-icons";
 
@@ -27,8 +28,8 @@
   let activation = "tanh";
   let activationFuncs = [
     { value: "tanh", name: "tanh" },
-    { value: "sinh", name: "sinh" },
     { value: "relu", name: "relu" },
+    { value: "sigmoid", name: "sigmoid" },
   ];
 
   let epochs = 100;
@@ -192,6 +193,20 @@
         </Li>
 
         <Li>
+          <div
+            class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center"
+          >
+            <Img
+              src="tanh.svg"
+              alt="tanh in pyhton without numpy"
+              size="max-w"
+            />
+            <Img src="relu.svg" alt="relu in python" size="" />
+            <Img src="sigmoid.svg" alt="sigmoid in python" size="max-w" />
+          </div>
+        </Li>
+
+        <Li>
           <Heading tag="h5" class="text-left" size="3xl">Hidden Size</Heading>
           <P class="pb-10 text-left">
             This refers to the number of neurons or units in the hidden layer(s)
@@ -229,8 +244,10 @@
           <P>
             The dataset consists of measurements from 150 iris flowers from
             three different species: setosa, versicolor, and virginica. Each
-            sample has four features, making it a 4-dimensional dataset. The
-            features are:
+            sample has four features, making it a 4-dimensional dataset. By
+            default, this neural network is trained using all of the features
+            (columns) below in order to try and predict what the species of a
+            given flower is.
           </P>
           <List list="none">
             <Li>
@@ -247,7 +264,100 @@
             </Li>
           </List>
         </Li>
+        <Li>
+          <P class="text-left p-5" />
+        </Li>
       </List>
+    </div>
+
+    <div class="flex justify-center items-center pt-10">
+      <div class="max-w-[700px]">
+        <div class="flex justify-center items-center">
+          <Heading tag="h4" class="text-center pb-5">Backprop Algorithm</Heading
+          >
+        </div>
+        <div class="flex justify-center items-center">
+          <List list="none">
+            <Li>
+              <Heading tag="h5" class="text-left" size="3xl"
+                >Explanation</Heading
+              >
+              <P class="pb-10 text-left"
+                >Backpropagation, short for "backward propagation of errors," is
+                the cornerstone of training artificial neural networks. It
+                begins by initializing the network's weights and biases. During
+                the forward pass, input data flows through the network's layers,
+                undergoing weighted sum calculations and activation functions,
+                eventually producing predictions. The algorithm then computes an
+                error or loss by comparing these predictions to the actual
+                target values. In the critical backward pass, starting from the
+                output layer and moving in reverse, gradients of the loss with
+                respect to each layer's outputs, weights, and biases are
+                calculated using calculus and the chain rule. These gradients
+                guide the adjustment of weights and biases in each layer, with
+                the goal of minimizing the loss. This iterative process repeats
+                for multiple epochs, refining the network's parameters until the
+                error reaches an acceptable level or a fixed number of training
+                iterations is completed, ultimately enabling the network to
+                improve its predictions on new data.
+              </P>
+            </Li>
+
+            <Li>
+              <Heading tag="h5" class="text-left" size="3xl"
+                >Implementation</Heading
+              >
+              <P
+                >Behind the scenes, my API implements the backprop algorithm.
+                the main loop first initializes weights and biases randomly. The
+                algorithm starts by iterating n times whre n is the number of
+                epochs you specify above. during each iteration, starting with
+                the randomly initialized weights and biases, the activation
+                function that you choose will be run inside of this compute node
+                function below:</P
+              >
+              <div class="flex justify-center items-center pt-5 pb-10">
+                <Img src="compute_node_code.svg" />
+              </div>
+              <P>
+                The activation function plays a crucial role in the behavior of
+                your neural network. The compute node function, which we've
+                discussed earlier, calculates the network's output. In each
+                iteration of the training process, we compare this output to the
+                actual data, which, in this case, represents the iris flower
+                type. The difference between the predicted and actual values
+                guides the algorithm in determining how much to adjust the
+                network's weights and biases for better predictions. However, we
+                must be careful to prevent the neural network from memorizing
+                the training data, a problem in machine learning known as
+                overfitting. To address this, we scale down the derivatives
+                computed for weights and biases by the learning rate you
+                specify, ensuring that the network learns in a controlled and
+                meaningful manner. You'll notice that if you use 1 for the
+                learning rate, the graph on loss / epoch is a lot choppier than
+                it is if you have a lower learning rate like 0.01. The smoother
+                the curve, the better. The process repeats for n epochs, then
+                the final results are calculated and our final weights and
+                biases saved.
+              </P>
+              <div class="pt-10 pb-5">
+                <DeviceMockup device="desktop">
+                  <img
+                    src="desktop.gif"
+                    alt="learning rate example"
+                    class="hidden dark:block h-[156px] md:h-[278px] w-full rounded-lg"
+                  />
+                  <img
+                    src="learning_rate_ex.gif"
+                    alt="this webpage but on a laptop"
+                    class="dark:hidden h-[156px] md:h-[278px] w-full rounded-xl"
+                  />
+                </DeviceMockup>
+              </div>
+            </Li>
+          </List>
+        </div>
+      </div>
     </div>
 
     <div class="flex justify-center items-center pb-5">
@@ -269,6 +379,12 @@
           <P class="text-sm mt-5 text-center mb-5"
             >MSE = Σ(y_actual - y_predicted)² / n</P
           >
+
+          <Img
+            src="mse_code.svg"
+            alt="python code for mean squared error p-5"
+          />
+
           <P>Where:</P>
         </Li>
         <Li />
