@@ -1,6 +1,6 @@
 <script>
-  import { Heading, Img, P } from "flowbite-svelte";
-  import PdfViewer from "svelte-pdf";
+  import { Heading, Img, P, GradientButton } from "flowbite-svelte";
+  import { ArrowDownOutline } from "flowbite-svelte-icons";
 </script>
 
 <div class="flex justify-center items-center">
@@ -17,7 +17,7 @@
 
 <div class="flex justify-center items-center">
   <div class="pb-20 ml-20 mr-20">
-    <P firstupper class="pt-20 pb-20 text-center"
+    <P firstupper class="pt-20 pb-10 text-center"
       >My name is Jensen Holm, and I am a senior at Grand Valley State
       University (GVSU) majoring in Computer Science with a minor in Data
       Science. I've had quite the college experience so far as a varsity student
@@ -37,13 +37,12 @@
   <Heading tag="h3" class="text-center">Resume</Heading>
 </div>
 
-<div class="flex justify-center items-center p-20">
-  <PdfViewer
-    data=""
-    url="./resume.pdf"
-    showButtons={["download", "zoom", "print"]}
-    downloadFileName="jensen-holm-resume.pdf"
-    scale={1.25}
-    showBorder={true}
-  />
+<div class="flex justify-center items-center pt-10">
+  <Img src="./resume.png" class="max-w-lg p-10" />
+</div>
+<div class="flex justify-center items-center pb-10">
+  <GradientButton color="blue">
+    <a download="resume.pdf" href="/about">Download</a>
+    <ArrowDownOutline class="w-3.5 h-3.5 ml-2" />
+  </GradientButton>
 </div>
