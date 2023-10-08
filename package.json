@@ -30,6 +30,7 @@
     "flowbite-svelte-icons": "^0.4.4",
     "howl": "^0.2.0",
     "howler": "^2.2.4",
+    "svelte-pdf": "^1.0.20",
     "svelte-sound": "^0.6.0",
     "tone": "^14.7.77"
   }

@@ -6,7 +6,7 @@ const config = {
 
   plugins: [require("flowbite/plugin")],
 
-  dark: 'class',
+  // dark: 'class',
 
   theme: {
     extend: {
