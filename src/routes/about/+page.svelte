@@ -38,11 +38,11 @@
 </div>
 
 <div class="flex justify-center items-center pt-10">
-  <Img src="./resume.png" class="max-w-lg p-10" />
+  <Img src="./jensen-holm-resume.png" class="max-w-lg p-10" />
 </div>
 <div class="flex justify-center items-center pb-10">
   <GradientButton color="blue">
-    <a download="resume.pdf" href="/about">Download</a>
+    <a download="jensen-holm-resume.pdf" href="/about">Download</a>
     <ArrowDownOutline class="w-3.5 h-3.5 ml-2" />
   </GradientButton>
 </div>
