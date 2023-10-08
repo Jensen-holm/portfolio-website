@@ -27,12 +27,15 @@
   "type": "module",
   "dependencies": {
     "axios": "^1.5.1",
+    "carbon-components-svelte": "^0.80.0",
     "fetch": "^1.1.0",
     "flowbite-svelte": "^0.44.18",
     "flowbite-svelte-icons": "^0.4.4",
     "highlight.js": "^11.8.0",
     "howl": "^0.2.0",
     "howler": "^2.2.4",
+    "nodemailer": "^6.9.5",
+    "svelte-email": "^0.0.4",
     "svelte-pdf": "^1.0.20",
     "svelte-sound": "^0.6.0",
     "tone": "^14.7.77"
