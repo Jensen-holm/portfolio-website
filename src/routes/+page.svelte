@@ -59,11 +59,12 @@
       <Project
         projectName="Clustering from scratch"
         projectImgPath="iris.png"
-        buttonText="Try it"
-        buttonHref="/clustering"
-        href="/clustering"
+        buttonText="Source Code"
+        buttonHref="https://github.com/Jensen-holm/ml-from-scratch"
+        href="https://github.com/Jensen-holm/ml-from-scratch"
         description="An application of clustering algorithms from scratch. Test K-means versus K-medoid clustering algorithms."
         inProgress={true}
+        newTab={true}
       />
 
       <Project

@@ -196,13 +196,9 @@
           <div
             class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center"
           >
-            <Img
-              src="tanh.svg"
-              alt="tanh in pyhton without numpy"
-              size="max-w"
-            />
-            <Img src="relu.svg" alt="relu in python" size="" />
-            <Img src="sigmoid.svg" alt="sigmoid in python" size="max-w" />
+            <Img src="tanh.png" alt="tanh in pyhton without numpy" />
+            <Img src="relu.png" alt="relu in python" size="" />
+            <Img src="sigmoid.png" alt="sigmoid in python" size="max-w" />
           </div>
         </Li>
 
@@ -317,7 +313,7 @@
                 function below:</P
               >
               <div class="flex justify-center items-center pt-5 pb-10">
-                <Img src="compute_node_code.svg" />
+                <Img src="compute_node_code.png" />
               </div>
               <P>
                 The activation function plays a crucial role in the behavior of
@@ -381,7 +377,7 @@
           >
 
           <Img
-            src="mse_code.svg"
+            src="mse_code.png"
             alt="python code for mean squared error p-5"
           />
 
