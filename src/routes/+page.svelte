@@ -47,14 +47,14 @@
         newTab={true}
       />
 
-      <Project
+      <!-- <Project
         projectName="Audio Reverse"
         projectImgPath="reverse.png"
         buttonText="Try it"
         buttonHref="/audio_reverse"
         href="/audio_reverse"
         description="REST API that reverses audio files."
-      />
+      /> -->
 
       <Project
         projectName="Clustering from scratch"
