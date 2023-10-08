@@ -4,7 +4,7 @@
 
 ![]("https://github.com/Jensen-holm/portfolio-website/blob/main/desktop.gif")
 
-https://website-nine-steel.vercel.app
+https://jensen-holm.vercel.app/
 
 ### Dependencies
 
