@@ -42,7 +42,7 @@
 </div>
 <div class="flex justify-center items-center pb-10 m-10">
   <GradientButton color="blue">
-    <a download="jensen-holm-resume.pdf" href="/about">Download</a>
+    <a href="https://jensen-holm.vercel.app/jensen-holm-resume.png">Download</a>
     <ArrowDownOutline class="w-3.5 h-3.5 ml-2" />
   </GradientButton>
 </div>
