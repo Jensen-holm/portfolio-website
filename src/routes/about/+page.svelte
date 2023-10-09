@@ -1,6 +1,7 @@
 <script>
   import { Heading, Img, P, GradientButton } from "flowbite-svelte";
   import { ArrowDownOutline } from "flowbite-svelte-icons";
+  import PdfViewer from 'svelte-pdf';
 </script>
 
 <div class="flex justify-center items-center">
@@ -37,12 +38,7 @@
   <Heading tag="h3" class="text-center">Resume</Heading>
 </div>
 
-<div class="flex justify-center items-center pt-10">
-  <Img src="./jensen-holm-resume.png" class="sm:max-w-md md:max-w-lg lg:max-w-lg p-10" />
-</div>
-<div class="flex justify-center items-center pb-10 m-10">
-  <GradientButton color="blue">
-    <a href="https://jensen-holm.vercel.app/jensen-holm-resume.png">Download</a>
-    <ArrowDownOutline class="w-3.5 h-3.5 ml-2" />
-  </GradientButton>
+
+<div class="flex justify-center items-center p-10">
+    <PdfViewer url="jensen-holm-resume.pdf" showButtons={["download", "zoom"]} />
 </div>
