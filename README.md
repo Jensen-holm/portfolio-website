@@ -1,16 +1,16 @@
 # Portfolio Website
 
-![desktop gif]("https://github.com/Jensen-holm/portfolio-website/blob/main/static/desktop.gif")
+![desktop gif](https://github.com/Jensen-holm/portfolio-website/blob/main/static/desktop.gif)
 
 https://jensen-holm.vercel.app/
 
 ### Dependencies
 
-- [Svelte-Kit]("https://kit.svelte.dev/")
-- [tailwind css]("https://tailwindcss.com/")
-- [flowbite-svelte]("https://flowbite-svelte.com/")
-- [flowbite-svelte-icons]("https://flowbite-svelte.com/docs/extend/icons")
-- [svelte-sound]("https://github.com/Rajaniraiyn/svelte-sound")
+- [Svelte-Kit](https://kit.svelte.dev/)
+- [tailwind css](https://tailwindcss.com/)
+- [flowbite-svelte](https://flowbite-svelte.com/)
+- [flowbite-svelte-icons](https://flowbite-svelte.com/docs/extend/icons)
+- [svelte-sound](https://github.com/Rajaniraiyn/svelte-sound)
 
 ### Local Setup
 
@@ -24,4 +24,4 @@ the commands below in the terminal if you already have npm installed on your mac
 `$ npm install`<br>
 <br>
 `$ npm run dev`
-<br>
+
