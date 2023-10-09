@@ -28,7 +28,7 @@
       Analytics Club, and being involved in other clubs as well like the chess
       club. I've changed my major a few times, starting undecided, but
       eventually I found what I enjoy doing with computing and I haven't looked
-      back since. I went to high school on the east side of the state in
+      back since. I went to high school on the east side of Michigan in
       Chelsea, MI where I ran track and field and cross country. Now, my hobbies
       include cycling, running, and working on programming projects like this
       one.
@@ -41,10 +41,10 @@
 </div>
 <div class="flex justify-center items-center pt-10">
   <GradientButton href={resume} download={resume} target="_blank"
-    >Download <ArrowDownOutline class="" />
+    >Download <ArrowDownOutline class="w-3.5 h-3.5 ml-2 text-white" />
   </GradientButton>
 </div>
 
 <div class="flex justify-center items-center p-10">
-  <PdfViewer url="jensen-holm-resume.pdf" showButtons={["zoom"]} />
+  <PdfViewer url="jensen-holm-resume.pdf" showButtons={["zoom"]} data={""}/>
 </div>
