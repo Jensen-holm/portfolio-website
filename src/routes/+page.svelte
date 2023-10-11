@@ -16,10 +16,10 @@
   </div>
 
   <div class="flex justify-center items-center">
-    <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
+    <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-4">
       <Project
         projectName="Neural Network from scratch"
-        projectImgPath="tree-backprop.png"
+        projectImgPath="tree-backprop.gif"
         buttonText="Try it"
         buttonHref="/machine_learning_from_scratch"
         href="/machine_learning_from_scratch"

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import {
     Label,
     Range,
@@ -7,12 +7,13 @@
     Checkbox,
     GradientButton,
     Heading,
-    Fileupload,
-    Helper,
     Dropzone,
   } from "flowbite-svelte";
-  import { ChevronDownSolid } from "flowbite-svelte-icons";
-  import NeuralNetworkTrain from "./train.svelte";
+  import { ChevronDownSolid, ArrowRightOutline } from "flowbite-svelte-icons";
+
+  let selectedFeatures: string[] = [];
+  let selectedTarget: string = "";
+  let csvData: string = "";
 
   let activation = "tanh";
   let activationFuncs = [
@@ -31,21 +32,75 @@
     learning_rate: 0.01,
     test_size: 0.2,
     activation: "relu",
-    // need to make it so users can specify
-    features: [],
-    //   "cap-shape",
-    //   "cap-surface",
-    //   "cap-color",
-    //   "bruises",
-    //   "odor",
-    //   "gill-attachment",
-    //   "gill-spacing",
-    //   "gill-size",
-    //   "gill-color",
-    // ],
+    features: selectedFeatures,
     target: "",
-    data: "insert data here",
+    data: "",
   };
+
+  // Function to handle file input change
+  function handleFileChange(event: Event & { target: HTMLInputElement }) {
+    const file: File | undefined = event.target.files?.[0];
+
+    if (file) {
+      const reader: FileReader = new FileReader();
+
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        if (e.target && e.target.result) {
+          csvData = e.target.result as string;
+        }
+      };
+      reader.readAsText(file);
+    }
+  }
+
+  // Function to handle form submission
+  function handleSubmit() {
+    // Update the requestArgs object with the form data
+    requestArgs.activation = activation;
+    requestArgs.epochs = epochs;
+    requestArgs.learning_rate = learningRate;
+    requestArgs.hidden_size = hiddenSize;
+    requestArgs.features = selectedFeatures;
+    requestArgs.target = selectedTarget;
+    requestArgs.data = csvData;
+  }
+
+  let responseData: TrainedNN | null = null; // Adjust this type based on the expected response from your API
+  interface TrainedNN {
+    loss_hist: number[];
+    log_loss: number;
+    accuracy: number;
+  }
+
+  let isLoading: boolean = false;
+  async function trainNeuralNet() {
+    try {
+      handleSubmit();
+      isLoading = true;
+      const response = await fetch(
+        "https://ml-from-scratch-v2.onrender.com/neural-network",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestArgs),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        responseData = data;
+        console.log(data); // You can log the data received from the API
+      } else {
+        console.error("Error:", response.status);
+      }
+    } catch (error) {
+      console.error("API Request Error:", error);
+    } finally {
+      isLoading = false;
+    }
+  }
 </script>
 
 <div>
@@ -54,7 +109,13 @@
   </div>
 
   <div class="flex justify-center items-center p-10">
-    <Dropzone class="max-w-[600px]">
+    <Dropzone
+      class="max-w-[600px]"
+      on:drop{handleFileChange}
+      on:change{handleFileChange}
+      bind:value={csvData}
+      accept=".csv"
+    >
       <svg
         aria-hidden="true"
         class="mb-3 w-10 h-10 text-gray-400"
@@ -72,9 +133,7 @@
       <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
         <span class="font-semibold">Click to upload</span> or drag and drop
       </p>
-      <p class="text-xs text-gray-500 dark:text-gray-400">
-        SVG, PNG, JPG or GIF (MAX. 800x400px)
-      </p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">CSV (MAX. 100MB)</p>
     </Dropzone>
   </div>
 
@@ -135,4 +194,29 @@
   </div>
 </div>
 
-<NeuralNetworkTrain args={requestArgs} />
+<div class="flex justify-center items-center pt-10 pb-20">
+  <GradientButton on:click={trainNeuralNet} color="red" class="w-fit">
+    {#if isLoading}
+      Loading...
+    {:else if responseData}
+      {JSON.stringify(responseData)}
+    {:else}
+      Train Neural Network
+    {/if}
+    <ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
+  </GradientButton>
+</div>
+
+{#if csvData}
+  <div class="mt-5">
+    <Label>
+      CSV Data
+      <textarea
+        rows="5"
+        class="border rounded p-2"
+        readonly
+        bind:value={csvData}
+      />
+    </Label>
+  </div>
+{/if}
