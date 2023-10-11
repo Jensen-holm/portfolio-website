@@ -6,7 +6,7 @@
 
   import { Alert } from "flowbite-svelte";
   import { InfoCircleSolid } from "flowbite-svelte-icons";
-  import PlayableAudio from "../../components/playable_audio.svelte";
+  import PlayableAudio from "../../components/audio_reverse/playable_audio.svelte";
 </script>
 
 <!-- display the alert that the user has to hit the reverse button first -->

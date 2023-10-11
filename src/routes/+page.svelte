@@ -1,6 +1,6 @@
 <script>
   import { Heading } from "flowbite-svelte";
-  import Project from "../components/project.svelte";
+  import Project from "../components/project_page/project.svelte";
 </script>
 
 <div class="min-h-screen h-screen">

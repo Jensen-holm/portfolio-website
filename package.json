@@ -35,6 +35,7 @@
     "howl": "^0.2.0",
     "howler": "^2.2.4",
     "nodemailer": "^6.9.5",
+    "papaparse": "^5.4.1",
     "svelte-email": "^0.0.4",
     "svelte-pdf": "^1.0.20",
     "svelte-sound": "^0.6.0",
