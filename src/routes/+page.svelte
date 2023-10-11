@@ -21,9 +21,9 @@
         projectName="Neural Network from scratch"
         projectImgPath="tree-backprop.png"
         buttonText="Try it"
-        buttonHref="/neural_network"
-        href="/neural_network"
-        description="An application of a neural network built from scratch, tune hyper parameters on the iris dataset and visualize loss history."
+        buttonHref="/machine_learning_from_scratch"
+        href="/machine_learning_from_scratch"
+        description="Test machine learning algorithms I built from scratch with your own data."
       />
 
       <Project
@@ -44,26 +44,6 @@
         buttonHref="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
         description="Baseball Monte Carlo simulation web-app. Simulate baseball teams from different era's against each other for up to 1,620 games"
-        newTab={true}
-      />
-
-      <!-- <Project
-        projectName="Audio Reverse"
-        projectImgPath="reverse.png"
-        buttonText="Try it"
-        buttonHref="/audio_reverse"
-        href="/audio_reverse"
-        description="REST API that reverses audio files."
-      /> -->
-
-      <Project
-        projectName="Clustering from scratch"
-        projectImgPath="iris.png"
-        buttonText="Source Code"
-        buttonHref="https://github.com/Jensen-holm/ml-from-scratch"
-        href="https://github.com/Jensen-holm/ml-from-scratch"
-        description="An application of clustering algorithms from scratch. Test K-means versus K-medoid clustering algorithms."
-        inProgress={true}
         newTab={true}
       />
 

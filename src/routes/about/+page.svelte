@@ -46,5 +46,6 @@
 </div>
 
 <div class="flex justify-center items-center p-10">
-  <PdfViewer url="jensen-holm-resume.pdf" showButtons={["zoom"]} data={""}/>
+  <!-- <PdfViewer url="jensen-holm-resume.pdf" showButtons={["zoom"]} data={""}/> -->
+  <Img src="jensen-holm-resume.png"></Img>
 </div>
