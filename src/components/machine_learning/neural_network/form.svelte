@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import {
     Label,
     Range,
@@ -11,9 +11,9 @@
   } from "flowbite-svelte";
   import { ChevronDownSolid, ArrowRightOutline } from "flowbite-svelte-icons";
 
-  let selectedFeatures: string[] = [];
-  let selectedTarget: string = "";
-  let csvData: string = "";
+  let selectedFeatures = [];
+  let selectedTarget = null;
+  let csvData = null;
 
   let activation = "tanh";
   let activationFuncs = [
@@ -37,21 +37,43 @@
     data: "",
   };
 
-  // Function to handle file input change
-  function handleFileChange(event: Event & { target: HTMLInputElement }) {
-    const file: File | undefined = event.target.files?.[0];
+  let columnNames = [];
+  function handleFileChange(event) {
+    const file = event.target.files?.[0];
 
     if (file) {
-      const reader: FileReader = new FileReader();
+      const reader = new FileReader();
 
-      reader.onload = (e: ProgressEvent<FileReader>) => {
+      reader.onload = (e) => {
         if (e.target && e.target.result) {
-          csvData = e.target.result as string;
+          csvData = e.target.result;
+          // Extract column names from the first row of the CSV
+          const csvLines = csvData.split("\n");
+          if (csvLines.length > 0) {
+            columnNames = csvLines[0].split(",");
+            console.log(columnNames);
+          }
         }
       };
       reader.readAsText(file);
     }
   }
+
+  // // Function to handle file input change
+  // function handleFileChange(event: Event & { target: HTMLInputElement }) {
+  //   const file: File | undefined = event.target.files?.[0];
+
+  //   if (file) {
+  //     const reader: FileReader = new FileReader();
+
+  //     reader.onload = (e: ProgressEvent<FileReader>) => {
+  //       if (e.target && e.target.result) {
+  //         csvData = e.target.result as string;
+  //       }
+  //     };
+  //     reader.readAsText(file);
+  //   }
+  // }
 
   // Function to handle form submission
   function handleSubmit() {
@@ -65,28 +87,25 @@
     requestArgs.data = csvData;
   }
 
-  let responseData: TrainedNN | null = null; // Adjust this type based on the expected response from your API
-  interface TrainedNN {
-    loss_hist: number[];
-    log_loss: number;
-    accuracy: number;
-  }
+  let responseData = null; // Adjust this type based on the expected response from your API
+  // interface TrainedNN {
+  //   loss_hist: number[];
+  //   log_loss: number;
+  //   accuracy: number;
+  // }
 
-  let isLoading: boolean = false;
+  let isLoading = false;
   async function trainNeuralNet() {
     try {
       handleSubmit();
       isLoading = true;
-      const response = await fetch(
-        "https://ml-from-scratch-v2.onrender.com/neural-network",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestArgs),
-        }
-      );
+      const response = await fetch("http://127.0.0.1:5000/neural-network", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestArgs),
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -111,9 +130,11 @@
   <div class="flex justify-center items-center p-10">
     <Dropzone
       class="max-w-[600px]"
-      on:drop{handleFileChange}
-      on:change{handleFileChange}
-      bind:value={csvData}
+      id="dropzone"
+      on:change={handleFileChange}
+      on:dragover={(event) => {
+        event.preventDefault();
+      }}
       accept=".csv"
     >
       <svg
@@ -171,25 +192,49 @@
           step="2"
         />
       </Label>
+      <!-- 
+      <div class="grid grid-cols-2 gap-2 mt-2">
+        <GradientButton
+          >Select Target<ChevronDownSolid
+            class="w-3 h-3 ml-2 text-white dark:text-white"
+          /></GradientButton
+        > -->
+      <!-- <Dropdown>
+          {#each columnNames as columnName}
+            <div class="flex items-center">
+              <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                <label>
+                  <input
+                    type="radio"
+                    bind:group={selectedTarget}
+                    value={columnName}
+                  />
+                  {columnName}
+                </label>
+              </li>
+            </div>
+          {/each}
+        </Dropdown>
+      </div> -->
 
-      <GradientButton
-        >Select Features<ChevronDownSolid
-          class="w-3 h-3 ml-2 text-white dark:text-white"
-        /></GradientButton
-      >
-      <Dropdown class="overflow-y-auto px-3 pb-3 text-sm h-44">
-        <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-          <Checkbox>Robert Gouth</Checkbox>
-        </li>
-        <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-          <Checkbox>Jese Leos</Checkbox>
-        </li>
-      </Dropdown>
-
-      <Label>
-        Select an Activation Function
-        <Select class="mt-2" items={activationFuncs} bind:value={activation} />
-      </Label>
+      <div class="grid grid-cols-2 gap-2 mt-2">
+        <GradientButton
+          >Select Features<ChevronDownSolid
+            class="w-3 h-3 ml-2 text-white dark:text-white"
+          /></GradientButton
+        >
+        <Dropdown>
+          {#each columnNames as columnName}
+            <div class="flex items-center">
+              <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                <Checkbox bind:group={selectedFeatures} value={columnName}>
+                  {columnName}
+                </Checkbox>
+              </li>
+            </div>
+          {/each}
+        </Dropdown>
+      </div>
     </div>
   </div>
 </div>
@@ -206,17 +251,3 @@
     <ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
   </GradientButton>
 </div>
-
-{#if csvData}
-  <div class="mt-5">
-    <Label>
-      CSV Data
-      <textarea
-        rows="5"
-        class="border rounded p-2"
-        readonly
-        bind:value={csvData}
-      />
-    </Label>
-  </div>
-{/if}
