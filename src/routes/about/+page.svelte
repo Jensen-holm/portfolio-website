@@ -1,7 +1,6 @@
 <script>
-  import { Heading, Img, P, GradientButton } from "flowbite-svelte";
+  import { Heading, Img, P, GradientButton, Gallery } from "flowbite-svelte";
   import { ArrowDownOutline } from "flowbite-svelte-icons";
-  import PdfViewer from "svelte-pdf";
 
   let resume = "jensen-holm-resume.pdf";
 </script>
@@ -18,6 +17,8 @@
   </div>
 </div>
 
+<Gallery></Gallery>
+
 <div class="flex justify-center items-center">
   <div class="pb-20 m-10">
     <P firstupper class="pt-20 pb-10 text-center max-w-[600px]"
@@ -28,10 +29,9 @@
       Analytics Club, and being involved in other clubs as well like the chess
       club. I've changed my major a few times, starting undecided, but
       eventually I found what I enjoy doing with computing and I haven't looked
-      back since. I went to high school on the east side of Michigan in
-      Chelsea, MI where I ran track and field and cross country. Now, my hobbies
-      include cycling, running, and working on programming projects like this
-      one.
+      back since. I went to high school on the east side of Michigan in Chelsea,
+      MI where I ran track and field and cross country. Now, my hobbies include
+      cycling, running, and working on programming projects like this one.
     </P>
   </div>
 </div>
@@ -46,6 +46,7 @@
 </div>
 
 <div class="flex justify-center items-center p-10">
-  <!-- <PdfViewer url="jensen-holm-resume.pdf" showButtons={["zoom"]} data={""}/> -->
-  <Img src="jensen-holm-resume.png"></Img>
+  <div>
+    <Img src="jensen-holm-resume.png" class="p-10" />
+  </div>
 </div>

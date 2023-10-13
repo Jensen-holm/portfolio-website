@@ -18,7 +18,7 @@
   <div class="flex justify-center items-center">
     <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-4">
       <Project
-        projectName="Neural Network from scratch"
+        projectName="Machine learning from scratch"
         projectImgPath="tree-backprop.gif"
         buttonText="Try it"
         buttonHref="/machine_learning_from_scratch"
@@ -31,7 +31,7 @@
         projectImgPath="g3n-wrapper.gif"
         buttonText="Source code"
         buttonHref="https://github.com/Jensen-holm/g3n-wrapper"
-        href="https://github.com/Jensen-holm/g3n-wrapper"
+        href="/g3n-wrapper"
         description="Wrapper package with built in physics engine for the G3N graphics package in Go."
         inProgress={false}
         newTab={true}

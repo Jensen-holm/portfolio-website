@@ -40,8 +40,8 @@
       </a>
       <a href="mailto:jensen.dev.01@gmail.com" target="_blank">
         <MailBoxSolid />
-      </a></NavBrand
-    >
+      </a>
+    </NavBrand>
     <NavHamburger />
     <NavUl>
       <NavLi href="/" active={true}>Projects</NavLi>

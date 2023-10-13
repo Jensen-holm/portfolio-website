@@ -7,12 +7,14 @@
     Checkbox,
     GradientButton,
     Heading,
-    Dropzone,
+    Spinner,
     Fileupload,
     Helper,
   } from "flowbite-svelte";
   import { ChevronDownSolid, ArrowRightOutline } from "flowbite-svelte-icons";
+  import Result from "./result.svelte";
 
+  let resultHist = [];
   let selectedFeatures = [];
   let selectedTarget = null;
   let csvData = null;
@@ -45,7 +47,6 @@
 
     if (file) {
       const reader = new FileReader();
-
       reader.onload = (e) => {
         if (e.target && e.target.result) {
           csvData = e.target.result;
@@ -53,7 +54,6 @@
           const csvLines = csvData.split("\n");
           if (csvLines.length > 0) {
             columnNames = csvLines[0].split(",");
-            console.log(columnNames);
           }
         }
       };
@@ -61,25 +61,7 @@
     }
   }
 
-  // // Function to handle file input change
-  // function handleFileChange(event: Event & { target: HTMLInputElement }) {
-  //   const file: File | undefined = event.target.files?.[0];
-
-  //   if (file) {
-  //     const reader: FileReader = new FileReader();
-
-  //     reader.onload = (e: ProgressEvent<FileReader>) => {
-  //       if (e.target && e.target.result) {
-  //         csvData = e.target.result as string;
-  //       }
-  //     };
-  //     reader.readAsText(file);
-  //   }
-  // }
-
-  // Function to handle form submission
   function handleSubmit() {
-    // Update the requestArgs object with the form data
     requestArgs.activation = activation;
     requestArgs.epochs = epochs;
     requestArgs.learning_rate = learningRate;
@@ -89,13 +71,7 @@
     requestArgs.data = csvData;
   }
 
-  let responseData = null; // Adjust this type based on the expected response from your API
-  // interface TrainedNN {
-  //   loss_hist: number[];
-  //   log_loss: number;
-  //   accuracy: number;
-  // }
-
+  let responseData = null;
   let isLoading = false;
   async function trainNeuralNet() {
     try {
@@ -112,7 +88,7 @@
       if (response.ok) {
         const data = await response.json();
         responseData = data;
-        console.log(data); // You can log the data received from the API
+        resultHist.push(data);
       } else {
         console.error("Error:", response.status);
       }
@@ -129,9 +105,8 @@
     <Heading tag="h1" class="text-center">Neural Network</Heading>
   </div>
 
-  <div class="flex justify-center items-center p-10">
+  <div class="flex justify-center items-center p-5">
     <div>
-      <!-- <Label class="pb-2" for="csv_data">File Upload</Label> -->
       <Fileupload
         class="max-w-[800px]"
         id="upload_csv"
@@ -145,9 +120,53 @@
     </div>
   </div>
 
+  <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center p-5">
+      <GradientButton
+        >Select Target<ChevronDownSolid
+          class="w-3 h-3 ml-2 text-white dark:text-white"
+        /></GradientButton
+      >
+      <Dropdown>
+        {#each columnNames as columnName}
+          <div class="flex items-center">
+            <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+              <label>
+                <input
+                  type="radio"
+                  bind:group={selectedTarget}
+                  value={columnName}
+                />
+                {columnName}
+              </label>
+            </li>
+          </div>
+        {/each}
+      </Dropdown>
+    </div>
+    <div class="flex justify-center items-center">
+      <GradientButton
+        >Select Features<ChevronDownSolid
+          class="w-3 h-3 ml-2 text-white dark:text-white"
+        /></GradientButton
+      >
+      <Dropdown>
+        {#each columnNames as columnName}
+          <div class="flex items-center">
+            <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+              <Checkbox bind:group={selectedFeatures} value={columnName}>
+                {columnName}
+              </Checkbox>
+            </li>
+          </div>
+        {/each}
+      </Dropdown>
+    </div>
+  </div>
+
   <!-- form input -->
   <div class="flex justify-center items-center">
-    <div class="grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    <div class="grid gap-5 grid-cols-1">
       <Label>
         Select an Activation Function
         <Select class="mt-2" items={activationFuncs} bind:value={activation} />
@@ -155,14 +174,14 @@
 
       <Label>
         Epochs {epochs}
-        <Range id="epochs" min="50" max="500" bind:value={epochs} step="50" />
+        <Range id="epochs" min="50" max="1000" bind:value={epochs} step="50" />
       </Label>
 
       <Label>
         Learning Rate {learningRate}
         <Range
           id="learning_rate"
-          min="0.01"
+          min="0.001"
           max="1.5"
           bind:value={learningRate}
           step="0.01"
@@ -172,55 +191,13 @@
       <Label>
         Hidden Size {hiddenSize}
         <Range
-          id="range-steps"
+          id="hidden_size"
           min="2"
           max="14"
           bind:value={hiddenSize}
           step="2"
         />
       </Label>
-      <div class="grid grid-cols-2 gap-2 mt-2">
-        <GradientButton
-          >Select Target<ChevronDownSolid
-            class="w-3 h-3 ml-2 text-white dark:text-white"
-          /></GradientButton
-        >
-        <Dropdown>
-          {#each columnNames as columnName}
-            <div class="flex items-center">
-              <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-                <label>
-                  <input
-                    type="radio"
-                    bind:group={selectedTarget}
-                    value={columnName}
-                  />
-                  {columnName}
-                </label>
-              </li>
-            </div>
-          {/each}
-        </Dropdown>
-      </div>
-
-      <div class="grid grid-cols-2 gap-2 mt-2">
-        <GradientButton
-          >Select Features<ChevronDownSolid
-            class="w-3 h-3 ml-2 text-white dark:text-white"
-          /></GradientButton
-        >
-        <Dropdown>
-          {#each columnNames as columnName}
-            <div class="flex items-center">
-              <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-                <Checkbox bind:group={selectedFeatures} value={columnName}>
-                  {columnName}
-                </Checkbox>
-              </li>
-            </div>
-          {/each}
-        </Dropdown>
-      </div>
     </div>
   </div>
 </div>
@@ -230,10 +207,12 @@
     {#if isLoading}
       Loading...
     {:else if responseData}
-      {JSON.stringify(responseData)}
+      {responseData.log_loss}
     {:else}
       Train Neural Network
     {/if}
     <ArrowRightOutline class="w-3.5 h-3.5 ml-2 text-white" />
   </GradientButton>
 </div>
+
+<Result result={responseData} {resultHist} />
