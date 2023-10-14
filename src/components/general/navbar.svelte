@@ -5,7 +5,6 @@
     NavLi,
     NavUl,
     NavHamburger,
-    Heading,
   } from "flowbite-svelte";
   import {
     LinkedinSolid,

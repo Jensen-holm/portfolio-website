@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import {
     Label,
     Range,
@@ -6,18 +6,18 @@
     Dropdown,
     Checkbox,
     GradientButton,
-    Heading,
-    Spinner,
     Fileupload,
     Helper,
+    Spinner,
+    Img,
   } from "flowbite-svelte";
   import { ChevronDownSolid, ArrowRightOutline } from "flowbite-svelte-icons";
-  import Result from "./result.svelte";
+  // import Result from "./result.svelte";
 
-  let resultHist = [];
-  let selectedFeatures = [];
-  let selectedTarget = null;
-  let csvData = null;
+  let selectedFeatures: string[] = [];
+  let selectedTarget: string | null = null;
+  let csvData: string | null | ArrayBuffer = null;
+  let pltData: Blob | null = null;
 
   let activation = "tanh";
   let activationFuncs = [
@@ -41,8 +41,8 @@
     data: "",
   };
 
-  let columnNames = [];
-  function handleFileChange(event) {
+  let columnNames: string[] = [];
+  function handleFileChange(event: Event) {
     const file = event.target.files?.[0];
 
     if (file) {
@@ -71,7 +71,36 @@
     requestArgs.data = csvData;
   }
 
-  let responseData = null;
+  async function plotResult(responseData) {
+    try {
+      isLoading = true;
+      const response = await fetch(
+        "https://ml-vis.onrender.com/neural-network",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(responseData),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.blob();
+        pltData = data;
+        isLoading = false;
+      } else {
+        console.error("Error:", response.text());
+        isLoading = false;
+      }
+    } catch (error) {
+      console.error("API Request Error:", error);
+    } finally {
+      isLoading = false;
+    }
+  }
+
+  let responseData: trainingResult = null;
   let isLoading = false;
   async function trainNeuralNet() {
     try {
@@ -91,7 +120,7 @@
       if (response.ok) {
         const data = await response.json();
         responseData = data;
-        resultHist.push(data);
+        plotResult(responseData);
       } else {
         console.error("Error:", response.status);
       }
@@ -104,7 +133,6 @@
 </script>
 
 <div>
-
   <div class="flex justify-center items-center p-5">
     <div>
       <Fileupload
@@ -213,6 +241,16 @@
   </GradientButton>
 </div>
 
-{#if responseData}
-  <Result result={responseData} />
+{#if pltData}
+  <!-- <Result {responseData} /> -->
+  <div class="flex justify-center items-center">
+    {#if pltData}
+      <img
+        src={URL.createObjectURL(pltData)}
+        alt="trained neural network classification result plots"
+      />
+    {:else if isLoading}
+      <Spinner />
+    {/if}
+  </div>
 {/if}
