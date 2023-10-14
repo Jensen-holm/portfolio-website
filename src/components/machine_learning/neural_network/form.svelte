@@ -9,7 +9,7 @@
     Fileupload,
     Helper,
     Spinner,
-    Img,
+    Skeleton,
   } from "flowbite-svelte";
   import { ChevronDownSolid, ArrowRightOutline } from "flowbite-svelte-icons";
   // import Result from "./result.svelte";
@@ -241,16 +241,16 @@
   </GradientButton>
 </div>
 
-{#if pltData}
-  <!-- <Result {responseData} /> -->
-  <div class="flex justify-center items-center">
-    {#if pltData}
-      <img
-        src={URL.createObjectURL(pltData)}
-        alt="trained neural network classification result plots"
-      />
-    {:else if isLoading}
-      <Spinner />
-    {/if}
-  </div>
-{/if}
+<!-- <Result {responseData} /> -->
+<div class="flex justify-center items-center">
+  {#if isLoading}
+    <Spinner />
+  {:else if pltData}
+    <img
+      src={URL.createObjectURL(pltData)}
+      alt="trained neural network classification result plots"
+    />
+  {:else}
+    <Skeleton />
+  {/if}
+</div>
