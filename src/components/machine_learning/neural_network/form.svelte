@@ -77,7 +77,7 @@
     try {
       handleSubmit();
       isLoading = true;
-      const response = await fetch("http://127.0.0.1:5000/neural-network", {
+      const response = await fetch("https://ml-from-scratch-v2.onrender.com/neural-network", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

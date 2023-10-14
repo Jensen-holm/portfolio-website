@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Card } from "flowbite-svelte";
   import { onMount } from "svelte";
+
   export let readmeUrl: string = "";
   let readmeContent;
 
@@ -23,11 +24,13 @@
 </script>
 
 {#if readmeContent}
-  <Card class="max-w-none">
-    <div class="markdown-container custom-first-line">
-      {@html readmeContent}
-    </div>
-  </Card>
+  <div class="p-10">
+    <Card class="max-w-none">
+      <div class="renderedHTML markdown-container">
+        {@html `<div>${readmeContent}</div>`}
+      </div>
+    </Card>
+  </div>
 {/if}
 
 <style>
@@ -37,9 +40,5 @@
     padding: 20px;
     font-family: Arial, sans-serif;
     border-radius: 5px;
-  }
-
-  .custom-first-line::first-line {
-    color: red;
   }
 </style>
