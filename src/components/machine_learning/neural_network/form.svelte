@@ -245,12 +245,11 @@
 <div class="flex justify-center items-center">
   {#if isLoading}
     <Spinner />
+    <Skeleton />
   {:else if pltData}
     <img
       src={URL.createObjectURL(pltData)}
       alt="trained neural network classification result plots"
     />
-  {:else}
-    <Skeleton />
   {/if}
 </div>
