@@ -6,10 +6,7 @@
 <div class="min-h-screen h-screen">
   <div class="pt-10 pb-5">
     <div class="text-center">
-      <Heading
-        tag="h2"
-        class="mb-4"
-        customSize="text-4xl font-extrabold  md:text-5xl lg:text-6xl"
+      <Heading tag="h2" class="mb-4" customSize="text-6xl font-extrabold p-10"
         >Project Portfolio</Heading
       >
     </div>
@@ -18,12 +15,12 @@
   <div class="flex justify-center items-center">
     <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-4">
       <Project
-        projectName="Machine learning from scratch"
+        projectName="Neural network algorithm from scratch"
         projectImgPath="tree-backprop.gif"
         buttonText="Try it"
         buttonHref="/machine_learning_from_scratch"
         href="/machine_learning_from_scratch"
-        description="Test machine learning algorithms I built from scratch with your own data."
+        description="Test out a neural network classification algorithm I built from scratch using your own data."
       />
 
       <Project

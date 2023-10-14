@@ -77,13 +77,16 @@
     try {
       handleSubmit();
       isLoading = true;
-      const response = await fetch("https://ml-from-scratch-v2.onrender.com/neural-network", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestArgs),
-      });
+      const response = await fetch(
+        "https://ml-from-scratch-v2.onrender.com/neural-network",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestArgs),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -101,9 +104,6 @@
 </script>
 
 <div>
-  <div class="flex justify-center items-center pt-20 pb-10">
-    <Heading tag="h1" class="text-center">Neural Network</Heading>
-  </div>
 
   <div class="flex justify-center items-center p-5">
     <div>
@@ -205,9 +205,7 @@
 <div class="flex justify-center items-center pt-10 pb-20">
   <GradientButton on:click={trainNeuralNet} color="red" class="w-fit">
     {#if isLoading}
-      Loading...
-    {:else if responseData}
-      {responseData.log_loss}
+      Training ...
     {:else}
       Train Neural Network
     {/if}
@@ -215,4 +213,6 @@
   </GradientButton>
 </div>
 
-<Result result={responseData} {resultHist} />
+{#if responseData}
+  <Result result={responseData} />
+{/if}

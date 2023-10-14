@@ -5,21 +5,22 @@
     NavLi,
     NavUl,
     NavHamburger,
-    Avatar,
+    Heading,
   } from "flowbite-svelte";
   import {
     LinkedinSolid,
     FacebookSolid,
     GithubSolid,
     MailBoxSolid,
+    HomeSolid,
   } from "flowbite-svelte-icons";
 </script>
 
 <div class="relative px-8">
   <Navbar class="px-2 sm:px-4 py-2.5 fixed w-full z-20 top-0 left-0 border-b">
     <NavBrand href="/">
-      <a href="/" class="p-5">
-        <Avatar src="https://avatars.githubusercontent.com/u/96762808?v=4" />
+      <a href="/" class="p-1">
+        <HomeSolid />
       </a>
       <a
         class="p-1"
@@ -28,7 +29,7 @@
       >
         <FacebookSolid />
       </a>
-      <a class="p-2" href="https://github.com/Jensen-holm" target="_blank">
+      <a class="p-1" href="https://github.com/Jensen-holm" target="_blank">
         <GithubSolid />
       </a>
       <a

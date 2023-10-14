@@ -1,37 +1,44 @@
 <script lang="ts">
-  import { Card } from "flowbite-svelte";
+  import { Card, Skeleton, Spinner } from "flowbite-svelte";
   import { onMount } from "svelte";
 
   export let readmeUrl: string = "";
-  let readmeContent;
+  let readmeContent: string | null;
+  let isLoading: boolean = true;
 
   async function fetchReadme() {
     try {
+      isLoading = true;
       const response = await fetch(
         `https://git-read-md.onrender.com/?readme_url=${readmeUrl}`
       );
       if (response.ok) {
         readmeContent = await response.text();
+        isLoading = false;
       } else {
         readmeContent = null;
+        isLoading = false;
       }
     } catch (error) {
       readmeContent = null;
+      isLoading = false;
     }
   }
 
   onMount(fetchReadme);
 </script>
 
-{#if readmeContent}
-  <div class="p-10">
-    <Card class="max-w-none">
+<div class="p-10">
+  <Card class="max-w-none">
+    {#if readmeContent}
       <div class="renderedHTML markdown-container">
-        {@html `<div>${readmeContent}</div>`}
+        {@html `${readmeContent}`}
       </div>
-    </Card>
-  </div>
-{/if}
+    {:else}
+      <Spinner size="10" />
+    {/if}
+  </Card>
+</div>
 
 <style>
   .markdown-container {
