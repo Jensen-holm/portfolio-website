@@ -75,7 +75,7 @@
     try {
       isLoading = true;
       const response = await fetch(
-        "https://machine-learning-from-scratch-jensen.onrender.com/neural-network",
+      "https://ml-vis.onrender.com/neural-network",
         {
           method: "POST",
           headers: {
@@ -107,7 +107,7 @@
       handleSubmit();
       isLoading = true;
       const response = await fetch(
-        "https://ml-from-scratch-v2.onrender.com/neural-network",
+        "https://machine-learning-from-scratch-jensen.onrender.com/neural-network",
         {
           method: "POST",
           headers: {
