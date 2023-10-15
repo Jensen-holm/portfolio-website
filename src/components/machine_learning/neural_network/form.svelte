@@ -75,7 +75,7 @@
     try {
       isLoading = true;
       const response = await fetch(
-        "https://ml-vis.onrender.com/neural-network",
+        "https://machine-learning-from-scratch-jensen.onrender.com/neural-network",
         {
           method: "POST",
           headers: {
