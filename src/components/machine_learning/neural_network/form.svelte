@@ -47,18 +47,28 @@
     const file = event.target.files?.[0];
 
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (e.target && e.target.result) {
-          csvData = e.target.result;
-          // Extract column names from the first row of the CSV
-          const csvLines = csvData.split("\n");
-          if (csvLines.length > 0) {
-            columnNames = csvLines[0].split(",");
-          }
+      const fileSize = file.size; // Get the file size in bytes
+
+      if (file) {
+        const reader = new FileReader();
+
+        if (fileSize > 50 * 1024 * 1024) {
+          alert("The file size exceeds 50MB. Please choose a smaller file.");
+          return;
         }
-      };
-      reader.readAsText(file);
+
+        reader.onload = (e) => {
+          if (e.target && e.target.result) {
+            csvData = e.target.result;
+            // Extract column names from the first row of the CSV
+            const csvLines = csvData.split("\n");
+            if (csvLines.length > 0) {
+              columnNames = csvLines[0].split(",");
+            }
+          }
+        };
+        reader.readAsText(file);
+      }
     }
   }
 
