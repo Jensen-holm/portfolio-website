@@ -30,10 +30,11 @@
   let epochs = 100;
   let learningRate = 0.01;
   let hiddenSize = 8;
+  let testSize = 0.2;
 
   let requestArgs = {
-    epochs: 100,
-    hidden_size: 8,
+    epochs: 500,
+    hidden_size: 4,
     learning_rate: 0.01,
     test_size: 0.2,
     activation: "relu",
@@ -80,11 +81,11 @@
     requestArgs.features = selectedFeatures;
     requestArgs.target = selectedTarget;
     requestArgs.data = csvData;
+    requestArgs.test_size = testSize;
   }
 
   async function plotResult(responseData) {
     try {
-      isLoading = true;
       const response = await fetch(
         "https://ml-vis.onrender.com/neural-network",
         {
@@ -105,7 +106,6 @@
     } catch (error) {
       alert(`API Request Error: ${error}`);
     } finally {
-      isLoading = false;
     }
   }
 
@@ -236,6 +236,17 @@
           step="2"
         />
       </Label>
+
+      <Label>
+        Test Size {testSize}
+        <Range
+          id="test_size"
+          min=".1"
+          max=".9"
+          bind:value={testSize}
+          step="0.1"
+        />
+      </Label>
     </div>
   </div>
 </div>
@@ -251,7 +262,6 @@
   </GradientButton>
 </div>
 
-<!-- <Result {responseData} /> -->
 <div class="flex justify-center items-center">
   {#if isLoading}
     <Spinner />
