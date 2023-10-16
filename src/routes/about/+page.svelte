@@ -1,6 +1,7 @@
 <script>
-  import { Heading, Img, P, GradientButton, Gallery } from "flowbite-svelte";
+  import { Heading, Img, GradientButton } from "flowbite-svelte";
   import { ArrowDownOutline } from "flowbite-svelte-icons";
+  import Readme from "../../components/general/readme.svelte";
 
   let resume = "jensen-holm-resume.pdf";
 </script>
@@ -12,28 +13,9 @@
 </div>
 
 <div class="flex justify-center items-center">
-  <div>
-    <Heading class="text-center mt-10">About Me</Heading>
-  </div>
-</div>
-
-<Gallery></Gallery>
-
-<div class="flex justify-center items-center">
-  <div class="pb-20 m-10">
-    <P firstupper class="pt-20 pb-10 text-center max-w-[600px]"
-      >My name is Jensen Holm, and I am a senior at Grand Valley State
-      University (GVSU) majoring in Computer Science with a minor in Data
-      Science. I've had quite the college experience so far as a varsity student
-      athlete on the Track and Field & Cross Country teams, founding the Sports
-      Analytics Club, and being involved in other clubs as well like the chess
-      club. I've changed my major a few times, starting undecided, but
-      eventually I found what I enjoy doing with computing and I haven't looked
-      back since. I went to high school on the east side of Michigan in Chelsea,
-      MI where I ran track and field and cross country. Now, my hobbies include
-      cycling, running, and working on programming projects like this one.
-    </P>
-  </div>
+  <Readme
+    readmeUrl="https://raw.githubusercontent.com/Jensen-holm/Jensen-holm/main/README.md"
+  />
 </div>
 
 <div class="flex justify-center items-center">
