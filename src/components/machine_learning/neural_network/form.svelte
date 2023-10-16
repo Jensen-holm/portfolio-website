@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { error } from "@sveltejs/kit";
   import {
     Label,
     Range,
@@ -75,7 +76,7 @@
     try {
       isLoading = true;
       const response = await fetch(
-      "https://ml-vis.onrender.com/neural-network",
+        "https://ml-vis.onrender.com/neural-network",
         {
           method: "POST",
           headers: {
@@ -88,13 +89,11 @@
       if (response.ok) {
         const data = await response.blob();
         pltData = data;
-        isLoading = false;
       } else {
-        console.error("Error:", response.text());
-        isLoading = false;
+        alert(error);
       }
     } catch (error) {
-      console.error("API Request Error:", error);
+      alert(`API Request Error: ${error}`);
     } finally {
       isLoading = false;
     }
@@ -122,10 +121,11 @@
         responseData = data;
         plotResult(responseData);
       } else {
-        console.error("Error:", response.status);
+        let err_txt = await response.text();
+        alert(`bad response: ${response.status}\n${err_txt}`);
       }
     } catch (error) {
-      console.error("API Request Error:", error);
+      alert(`Error: ${error}`);
     } finally {
       isLoading = false;
     }
