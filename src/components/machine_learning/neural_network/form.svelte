@@ -13,7 +13,6 @@
     Skeleton,
   } from "flowbite-svelte";
   import { ChevronDownSolid, ArrowRightOutline } from "flowbite-svelte-icons";
-  // import Result from "./result.svelte";
 
   let selectedFeatures: string[] = [];
   let selectedTarget: string | null = null;
