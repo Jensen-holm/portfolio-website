@@ -5,6 +5,7 @@
     NavLi,
     NavUl,
     NavHamburger,
+    GradientButton,
   } from "flowbite-svelte";
   import {
     LinkedinSolid,
@@ -12,7 +13,11 @@
     GithubSolid,
     MailBoxSolid,
     HomeSolid,
+    ArrowDownOutline,
+    FileCodeSolid,
   } from "flowbite-svelte-icons";
+
+  let resume = "jensen-holm-resume.pdf";
 </script>
 
 <div class="relative px-8">
@@ -41,12 +46,14 @@
       <a href="mailto:jensen.dev.01@gmail.com" target="_blank">
         <MailBoxSolid />
       </a>
+      <a class="p-2" href={resume} download={resume} target="_blank">
+        <FileCodeSolid />
+      </a>
     </NavBrand>
     <NavHamburger />
     <NavUl>
-      <NavLi href="/" active={true}>Projects</NavLi>
-      <NavLi href="/about">About</NavLi>
-      <NavLi href="mailto:jensen.dev.01@gmail.com" target="_blank"
+      <NavLi href="/" active={true}>Home</NavLi>
+      <NavLi href="mailto:holmj@mail.gvsu.edu" target="_blank"
         >Contact</NavLi
       >
     </NavUl>

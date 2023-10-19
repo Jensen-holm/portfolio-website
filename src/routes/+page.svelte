@@ -1,13 +1,29 @@
 <script>
-  import { Heading } from "flowbite-svelte";
   import Project from "../components/project_page/project.svelte";
+
+  import { Heading, Img, GradientButton } from "flowbite-svelte";
+  import Readme from "../components/general/readme.svelte";
+
+  let resume = "jensen-holm-resume.pdf";
 </script>
+
+<div class="flex justify-center items-center">
+  <div class="pt-20">
+    <Img src="school.png" />
+  </div>
+</div>
+
+<div class="flex justify-center items-center">
+  <Readme
+    readmeUrl="https://raw.githubusercontent.com/Jensen-holm/Jensen-holm/main/README.md"
+  />
+</div>
 
 <div class="min-h-screen h-screen">
   <div class="pt-10 pb-5">
     <div class="text-center">
       <Heading tag="h2" class="mb-4" customSize="text-6xl font-extrabold p-10"
-        >Project Portfolio</Heading
+        >Projects</Heading
       >
     </div>
   </div>

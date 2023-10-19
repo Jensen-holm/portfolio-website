@@ -12,8 +12,12 @@
       <InfoCircleSolid slot="icon" />
       <span class="font-medium">Warning!</span>
       The backend for this app is currently being hosted using the
-      <a class="underline" href="https://onrender.com">render cloud platform's</a> free instances. <br>
-      This means that content and functionality may 'fall asleep', and may be slow to wake up.
+      <a class="underline" href="https://onrender.com"
+        >render cloud platform's</a
+      >
+      free instances. <br />
+      This means that content and functionality may 'fall asleep', and may be slow
+      to wake up. Please be patient!
     </Alert>
   </div>
 
