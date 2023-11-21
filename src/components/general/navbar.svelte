@@ -14,6 +14,7 @@
         MailBoxSolid,
         HomeSolid,
         FileCodeSolid,
+        NewspaperSolid,
     } from "flowbite-svelte-icons";
 
     let resume = "jensen-holm-resume.pdf";
@@ -47,6 +48,14 @@
             >
                 <LinkedinSolid/>
                 <Tooltip>Linkedin</Tooltip>
+            </a>
+            <a href="https://medium.com/@jensen.dev.01"
+               class="p-3"
+               target="_blank">
+
+                <NewspaperSolid></NewspaperSolid>
+                <Tooltip>Medium</Tooltip>
+
             </a>
             <a href="mailto:holmj@mail.gvsu.edu"
                target="_blank">
