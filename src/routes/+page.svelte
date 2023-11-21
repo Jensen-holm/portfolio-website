@@ -98,7 +98,7 @@
                     projectImgPath="https://raw.githubusercontent.com/Chemsim-HPC/HPC-Sandbox/main/demos/benchmark_demo.gif"
                     buttonText="Source Code"
                     buttonHref="https://github.com/Chemsim-HPC/HPC-Sandbox"
-                    href="https://github.com/Chemsim-HPC/HPC-Sandbox"
+                    href="/hpc-sb"
                     description="High performance computing (HPC) sandbox for testing different HPC methods before getting involved in HPC undergraduate research at GVSU."
                     inProgress={true}
             >
