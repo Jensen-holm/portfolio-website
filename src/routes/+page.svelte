@@ -7,10 +7,13 @@
 <div class="flex justify-center items-center">
     <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 max-lg:grid-cols-3">
         <div class="pt-10">
-            <Img src="white-pine-digital.jpeg"
-                 class="w-40 h-40 object-cover"/>
-            <Tooltip>Experience: Full Stack Software Engineer Intern @ <a href="https://whitepine.digital/">White Pine
-                Digital</a></Tooltip>
+            <a href="https://whitepine.digital/">
+                <Img src="white-pine-digital.jpeg"
+                     class="w-40 h-40 object-cover"/>
+                <Tooltip>Experience: Full Stack Software Engineer Intern @ White Pine
+                    Digital
+                </Tooltip>
+            </a>
         </div>
         <div class="pt-10">
             <Img src="gvsu_roster_pic.png"
@@ -18,10 +21,14 @@
             <Tooltip>Me</Tooltip>
         </div>
         <div class="pt-10">
-            <Img src="kalamazoo-growlers.png"
-                 class="w-40 h-40 object-cover"/>
-            <Tooltip>Experience: Data Science / Analytics Intern @
-                <a href="https://northwoodsleague.com/kalamazoo-growlers/">Kalamazoo Growlers</a></Tooltip>
+            <a href="https://northwoodsleague.com/kalamazoo-growlers/">
+                <Img
+                        src="kalamazoo-growlers.png"
+                        class="w-40 h-40 object-cover"/>
+                <Tooltip>Experience: Data Science / Analytics Intern @
+                    Kalamazoo Growlers
+                </Tooltip>
+            </a>
         </div>
     </div>
 </div>
