@@ -52,7 +52,7 @@
     </div>
 
     <div class="flex justify-center items-center">
-        <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-4">
+        <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
             <Project
                     projectName="Neural network algorithm from scratch"
                     projectImgPath="tree-backprop.gif"
@@ -92,6 +92,19 @@
                     description="I built this website using svelte-kit and tailwind css for a simple, lightweight, & responsive application."
                     inProgress={true}
             />
+
+            <Project
+                    projectName="HPC-Sandbox"
+                    projectImgPath="https://raw.githubusercontent.com/Chemsim-HPC/HPC-Sandbox/main/demos/benchmark_demo.gif"
+                    buttonText="Source Code"
+                    buttonHref="https://github.com/Chemsim-HPC/HPC-Sandbox"
+                    href="https://github.com/Chemsim-HPC/HPC-Sandbox"
+                    description="High performance computing (HPC) sandbox for testing different HPC methods before getting involved in HPC undergraduate research at GVSU."
+                    inProgress={true}
+            >
+
+            </Project>
+
         </div>
     </div>
 </div>
