@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card, Skeleton, Spinner } from "flowbite-svelte";
+  import { Card, Spinner } from "flowbite-svelte";
   import { onMount } from "svelte";
 
   export let readmeUrl: string = "";
@@ -28,7 +28,7 @@
   onMount(fetchReadme);
 </script>
 
-<div class="p-10">
+<div class="pt-10 pb-10">
   <Card class="max-w-none">
     {#if readmeContent}
       <div class="renderedHTML markdown-container">

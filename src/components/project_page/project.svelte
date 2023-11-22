@@ -17,7 +17,7 @@
       class="mb-4">
     <img
             src={projectImgPath}
-            alt="Neural Network from scratch"
+            alt="${projectName} image / gif"
             class="w-full h-auto object-contain"
     />
     <h5

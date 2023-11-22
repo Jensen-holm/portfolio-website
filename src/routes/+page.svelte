@@ -5,8 +5,8 @@
 </script>
 
 <div class="flex justify-center items-center">
-    <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 max-lg:grid-cols-3">
-        <div class="pt-10">
+    <div class="grid max-sm:grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 max-lg:grid-cols-3">
+        <div class="pt-5">
             <a href="https://whitepine.digital/">
                 <Img src="white-pine-digital.jpeg"
                      class="w-40 h-40 object-cover"/>
@@ -15,12 +15,12 @@
                 </Tooltip>
             </a>
         </div>
-        <div class="pt-10">
+        <div class="pt-5">
             <Img src="gvsu_roster_pic.png"
                  class="w-40 h-40 object-cover"/>
             <Tooltip>Me</Tooltip>
         </div>
-        <div class="pt-10">
+        <div class="pt-5">
             <a href="https://northwoodsleague.com/kalamazoo-growlers/">
                 <Img
                         src="kalamazoo-growlers.png"
@@ -44,7 +44,7 @@
         <div class="text-center">
             <Heading tag="h2"
                      class="mb-4"
-                     customSize="text-6xl font-extrabold p-10"
+                     customSize="text-5xl font-extrabold p-10"
             >Projects
             </Heading
             >
@@ -52,7 +52,7 @@
     </div>
 
     <div class="flex justify-center items-center">
-        <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
+        <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <Project
                     projectName="Neural network algorithm from scratch"
                     projectImgPath="tree-backprop.gif"
@@ -98,12 +98,10 @@
                     projectImgPath="https://raw.githubusercontent.com/Chemsim-HPC/HPC-Sandbox/main/demos/benchmark_demo.gif"
                     buttonText="Source Code"
                     buttonHref="https://github.com/Chemsim-HPC/HPC-Sandbox"
-                    href="/hpc-sb"
+                    href="https://github.com/Chemsim/HPC-Sandbox"
                     description="High performance computing (HPC) sandbox for testing different HPC methods before getting involved in HPC undergraduate research at GVSU."
                     inProgress={true}
-            >
-
-            </Project>
+            />
 
         </div>
     </div>
