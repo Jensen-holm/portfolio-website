@@ -103,6 +103,16 @@
                     inProgress={true}
             />
 
+            <Project
+                    projectName="FireApi"
+                    projectImgPath="mojo_logo.webp"
+                    buttonText="Source Code"
+                    buttonHref="https://github.com/Jensen-holm/FireApi.git"
+                    href="https://github.com/Jensen-holm/FireApi.git"
+                    description="lightweight REST API framework for the AI programming language mojo"
+                    inProgress={true}
+            />
+
         </div>
     </div>
 </div>
