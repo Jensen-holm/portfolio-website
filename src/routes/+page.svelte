@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex justify-center items-center">
-    <div class="grid max-sm:grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 max-lg:grid-cols-3">
+    <div class="grid gap-5 max-sm:grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 max-lg:grid-cols-3">
         <div class="pt-5">
             <a href="https://whitepine.digital/">
                 <Img src="white-pine-digital.jpeg"
@@ -16,9 +16,9 @@
             </a>
         </div>
         <div class="pt-5">
-            <Img src="gvsu_roster_pic.png"
+            <Img src="gentex.png"
                  class="w-40 h-40 object-cover"/>
-            <Tooltip>Me</Tooltip>
+            <Tooltip>Experience: Machine Learning Engineer Summer 2024</Tooltip>
         </div>
         <div class="pt-5">
             <a href="https://northwoodsleague.com/kalamazoo-growlers/">
