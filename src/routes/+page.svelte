@@ -54,6 +54,16 @@
     <div class="flex justify-center items-center">
         <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <Project
+                    projectName="FireTCP"
+                    projectImgPath="mojo_logo.webp"
+                    buttonText="Source Code"
+                    buttonHref="https://github.com/Jensen-holm/FireTCP"
+                    href="https://medium.com/@jensen.dev.01/socket-programming-in-mojo-e113f6c8cbef"
+                    description="A lightweight TCP socket networking API for the Mojo programming language for building client/server applications"
+                    inProgress={false}
+            />
+
+            <Project
                     projectName="Neural network algorithm from scratch"
                     projectImgPath="tree-backprop.gif"
                     buttonText="Try it"
@@ -100,16 +110,6 @@
                     buttonHref="https://github.com/Chemsim-HPC/HPC-Sandbox"
                     href="https://github.com/Chemsim-HPC/HPC-Sandbox"
                     description="High performance computing (HPC) sandbox for testing different HPC methods before getting involved in HPC undergraduate research at GVSU."
-                    inProgress={true}
-            />
-
-            <Project
-                    projectName="FireApi"
-                    projectImgPath="mojo_logo.webp"
-                    buttonText="Source Code"
-                    buttonHref="https://github.com/Jensen-holm/FireApi.git"
-                    href="https://github.com/Jensen-holm/FireApi.git"
-                    description="lightweight REST API framework for the AI programming language mojo"
                     inProgress={true}
             />
 
