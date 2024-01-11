@@ -6,6 +6,7 @@
         NavUl,
         NavHamburger,
         Tooltip,
+        DarkMode,
     } from "flowbite-svelte";
     import {
         LinkedinSolid,
@@ -67,8 +68,14 @@
                download={resume}
                target="_blank">
                 <FileCodeSolid/>
-                <Tooltip>Download Resume</Tooltip>
+                <Tooltip>View Resume</Tooltip>
             </a>
+
+            <a>
+                <DarkMode></DarkMode>
+                <Tooltip>Toggle Dark Mode</Tooltip>
+            </a>
+
         </NavBrand>
         <NavHamburger/>
         <NavUl>

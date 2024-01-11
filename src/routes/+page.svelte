@@ -1,36 +1,12 @@
 <script>
-    import {Heading, Img, Tooltip} from "flowbite-svelte";
+    import {Heading, Avatar} from "flowbite-svelte";
     import Project from "../components/project_page/project.svelte";
     import Readme from "../components/general/readme.svelte";
 </script>
 
-<div class="flex justify-center items-center">
-    <div class="grid gap-5 max-sm:grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 max-lg:grid-cols-3">
-        <div class="pt-5">
-            <a href="https://whitepine.digital/">
-                <Img src="white-pine-digital.jpeg"
-                     class="w-40 h-40 object-cover"/>
-                <Tooltip>Experience: Full Stack Software Engineer Intern @ White Pine
-                    Digital
-                </Tooltip>
-            </a>
-        </div>
-        <div class="pt-5">
-            <Img src="gentex.png"
-                 class="w-40 h-40 object-cover"/>
-            <Tooltip>Experience: Machine Learning Engineer Summer 2024</Tooltip>
-        </div>
-        <div class="pt-5">
-            <a href="https://northwoodsleague.com/kalamazoo-growlers/">
-                <Img
-                        src="kalamazoo-growlers.png"
-                        class="w-40 h-40 object-cover"/>
-                <Tooltip>Experience: Data Science / Analytics Intern @
-                    Kalamazoo Growlers
-                </Tooltip>
-            </a>
-        </div>
-    </div>
+
+<div class="flex justify-center items-center pt-10">
+    <Avatar src="headshot.png" rounded size="xl"/>
 </div>
 
 <div class="flex justify-center items-center">
@@ -53,6 +29,7 @@
 
     <div class="flex justify-center items-center">
         <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
             <Project
                     projectName="FireTCP"
                     projectImgPath="mojo_logo.webp"
@@ -61,15 +38,28 @@
                     href="https://medium.com/@jensen.dev.01/socket-programming-in-mojo-e113f6c8cbef"
                     description="A lightweight TCP socket networking API for the Mojo programming language for building client/server applications"
                     inProgress={false}
+                    newTab={true}
             />
 
             <Project
-                    projectName="Neural network algorithm from scratch"
+                    projectName="GPU-Accelerated-QST"
+                    projectImgPath="cuda.jpg"
+                    buttonText="Source Code"
+                    buttonHref="https://github.com/Jensen-holm/GPU-Accelerated-QST"
+                    href="https://github.com/Jensen-holm/GPU-Accelerated-QST"
+                    description="Undergraduate research project: GPU accelerated quantum scattering theory with the GVSU chemistry department and Dr. Erin Carrier."
+                    inProgress={true}
+                    newTab={true}
+            />
+
+            <Project
+                    projectName="Backprop Playground"
                     projectImgPath="tree-backprop.gif"
                     buttonText="Try it"
                     buttonHref="/machine_learning_from_scratch"
                     href="/machine_learning_from_scratch"
-                    description="Test out a neural network classification algorithm I built from scratch using your own data."
+                    description="Neural Network jyper parameter tuning API built from scratch."
+                    inProgress={true}
             />
 
             <Project
@@ -100,17 +90,7 @@
                     buttonHref="/webpage"
                     href="/webpage"
                     description="I built this website using svelte-kit and tailwind css for a simple, lightweight, & responsive application."
-                    inProgress={true}
-            />
-
-            <Project
-                    projectName="HPC-Sandbox"
-                    projectImgPath="https://raw.githubusercontent.com/Chemsim-HPC/HPC-Sandbox/main/demos/benchmark_demo.gif"
-                    buttonText="Source Code"
-                    buttonHref="https://github.com/Chemsim-HPC/HPC-Sandbox"
-                    href="https://github.com/Chemsim-HPC/HPC-Sandbox"
-                    description="High performance computing (HPC) sandbox for testing different HPC methods before getting involved in HPC undergraduate research at GVSU."
-                    inProgress={true}
+                    inProgress={false}
             />
 
         </div>

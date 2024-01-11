@@ -1,5 +1,5 @@
 <script>
-  import { Alert, DarkMode } from "flowbite-svelte";
+  import { Alert } from "flowbite-svelte";
   import "../app.postcss";
   import Navbar from "../components/general/navbar.svelte";
   import { InfoCircleSolid } from "flowbite-svelte-icons";
@@ -19,10 +19,6 @@
       This means that content and functionality may 'fall asleep', and may be slow
       to wake up. Please be patient!
     </Alert>
-  </div>
-
-  <div class="flex justify-center items-center pt-10">
-    <DarkMode />
   </div>
   <slot />
 </div>
