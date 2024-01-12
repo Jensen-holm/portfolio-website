@@ -71,7 +71,7 @@
                 <Tooltip>View Resume</Tooltip>
             </a>
 
-            <a>
+            <a href="/">
                 <DarkMode></DarkMode>
                 <Tooltip>Toggle Dark Mode</Tooltip>
             </a>
