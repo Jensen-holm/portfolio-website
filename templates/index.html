@@ -10,16 +10,12 @@
 <body>
 
     <!-- Include header component -->
-    <div hx-include="/components/header.html"></div>
+    {% include 'components/header.html' %}
 
     <h1 id="content">Hello, htmx!</h1>
 
-    <button hx-post="/update" hx-target="#content" hx-swap="innerHTML">
-        Update Content
-    </button>
-
     <!-- Include footer component -->
-    <div hx-include="/components/footer.html"></div>
+    {% include 'components/footer.html' %}
 
 </body>
 </html>
