@@ -5,14 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>htmx with Flask</title>
-    <script src="https://unpkg.com/htmx.org@1.7.3/dist/htmx.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body>
 
     <!-- Include header component -->
     {% include 'components/header.html' %}
 
-    <h1 id="content">Hello, Jensen!</h1>
+    <form id="nameForm" hx-get="/hello/{{ name }}" hx-vars="#nameForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Say Hi</button>
+    </form>
+
+    <div id="content">
+        {% if name %}
+            <h1>Hello, {{ name }}!</h1>
+        {% else %}
+            <h1>Hello, Guest!</h1>
+        {% endif %}
+    </div>
 
     <!-- Include footer component -->
     {% include 'components/footer.html' %}
