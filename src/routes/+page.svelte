@@ -57,6 +57,17 @@
             />
 
             <Project
+                projectName="ClusteRGB"
+                projectImgPath="ClusteRGB.png"
+                buttonText="Try it"
+                buttonHref="https://huggingface.co/spaces/Jensen-holm/ClusteRGB"
+                href="https://huggingface.co/spaces/Jensen-holm/ClusteRGB"
+                description="Cluster an image based on its RGB channel values using KMeans Clustering in your browser"
+                inProgress={false}
+                newTab={true}
+            />
+
+            <Project
                     projectName="Backprop Playground"
                     projectImgPath="tree-backprop.gif"
                     buttonText="Try it"
@@ -79,22 +90,12 @@
 
             <Project
                     projectName="Monte Carlo baseball time machine"
-                    projectImgPath="bball_time_machine.gif"
+                    projectImgPath="bball_time_machine.png"
                     buttonText="Try it"
-                    buttonHref="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
-                    href="https://jensen-holm-mlb-app-app-q1fw6t.streamlit.app/"
+                    buttonHref="https://huggingface.co/spaces/Jensen-holm/MLBTimeMachine"
+                    href="https://huggingface.co/spaces/Jensen-holm/MLBTimeMachine"
                     description="Baseball Monte Carlo simulation web-app. Simulate baseball teams from different era's against each other for up to 1,620 games"
                     newTab={true}
-            />
-
-            <Project
-                    projectName="My Portfolio Website"
-                    projectImgPath="svelte-kit-tailwind.jpg"
-                    buttonText="Source code"
-                    buttonHref="/webpage"
-                    href="/webpage"
-                    description="I built this website using svelte-kit and tailwind css for a simple, lightweight, & responsive application."
-                    inProgress={false}
             />
 
         </div>
