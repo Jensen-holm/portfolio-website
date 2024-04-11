@@ -70,9 +70,9 @@
             <Project
                     projectName="Backprop Playground"
                     projectImgPath="tree-backprop.gif"
-                    buttonText="Try it"
-                    buttonHref="/machine_learning_from_scratch"
-                    href="/machine_learning_from_scratch"
+                    buttonText="Source Code"
+                    buttonHref="https://github.com/Jensen-holm/BPPG"
+                    href="https://github.com/Jensen-holm/BPPG"
                     description="Neural Network jyper parameter tuning API built from scratch."
                     inProgress={true}
             />
