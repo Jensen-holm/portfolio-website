@@ -46,15 +46,15 @@
             />
 
             <Project
-                    projectName="GPU-Accelerated-QST"
-                    projectImgPath="cuda.jpg"
-                    buttonText="Source Code"
-                    buttonHref="https://github.com/Jensen-holm/GPU-Accelerated-QST"
-                    href="https://github.com/Jensen-holm/GPU-Accelerated-QST"
-                    description="Undergraduate research project: GPU accelerated quantum scattering theory with the GVSU chemistry department and Dr. Erin Carrier."
+                    projectName="Backprop Playground"
+                    projectImgPath="tree-backprop.gif"
+                    buttonText="Try it"
+                    buttonHref="https://huggingface.co/spaces/Jensen-holm/Backprop-Playground"
+                    href="https://huggingface.co/spaces/Jensen-holm/Backprop-Playground"
+                    description="This web app uses a neural network framework that I built from scratch in python, using numpy as the only 3rd party library in the framework itself."
                     inProgress={true}
-                    newTab={true}
             />
+
 
             <Project
                 projectName="ClusteRGB"
@@ -68,14 +68,16 @@
             />
 
             <Project
-                    projectName="Backprop Playground"
-                    projectImgPath="tree-backprop.gif"
+                    projectName="GPU-Accelerated-QST"
+                    projectImgPath="cuda.jpg"
                     buttonText="Source Code"
-                    buttonHref="https://github.com/Jensen-holm/BPPG"
-                    href="https://github.com/Jensen-holm/BPPG"
-                    description="Neural Network jyper parameter tuning API built from scratch."
+                    buttonHref="https://github.com/Jensen-holm/GPU-Accelerated-QST"
+                    href="https://github.com/Jensen-holm/GPU-Accelerated-QST"
+                    description="Undergraduate research project: GPU accelerated quantum scattering theory with the GVSU chemistry department and Dr. Erin Carrier."
                     inProgress={true}
+                    newTab={true}
             />
+
 
             <Project
                     projectName="G3N Graphics library wrapper & physics engine"
