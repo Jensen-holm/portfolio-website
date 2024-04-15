@@ -46,13 +46,14 @@
             />
 
             <Project
-                    projectName="Backprop Playground"
-                    projectImgPath="tree-backprop.gif"
+                    projectName="Numpy-Neuron"
+                    projectImgPath="NN-Demo.gif"
                     buttonText="Try it"
                     buttonHref="https://huggingface.co/spaces/Jensen-holm/Backprop-Playground"
                     href="https://huggingface.co/spaces/Jensen-holm/Backprop-Playground"
                     description="This web app uses a neural network framework that I built from scratch in python, using numpy as the only 3rd party library in the framework itself."
-                    inProgress={true}
+                    newTab={true}
+                    inProgress={false}
             />
 
 
