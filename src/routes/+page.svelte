@@ -35,14 +35,14 @@
         <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
             <Project
-                    projectName="FireTCP"
-                    projectImgPath="mojo_logo.webp"
-                    buttonText="Source Code"
-                    buttonHref="https://github.com/Jensen-holm/FireTCP"
-                    href="https://medium.com/@jensen.dev.01/socket-programming-in-mojo-e113f6c8cbef"
-                    description="A lightweight TCP socket networking API for the Mojo programming language for building client/server applications"
-                    inProgress={false}
-                    newTab={true}
+                projectName="MLB Tunnel Bot"
+                projectImgPath="tunnel_bot_demo.png"
+                buttonText="View"
+                buttonHref="https://twitter.com/MLBTunnelBot"
+                href="https://twitter.com/MLBTunnelBot"
+                description="X (formerly twitter) bot that tweets about the best MLB pitch from the day prior by tunnel score, an advanced statistic that I created to measure pitch tunneling."
+                newTab={true}
+                inProgress={true}
             />
 
             <Project
@@ -56,6 +56,16 @@
                     inProgress={false}
             />
 
+            <Project
+                    projectName="FireTCP"
+                    projectImgPath="mojo_logo.webp"
+                    buttonText="Source Code"
+                    buttonHref="https://github.com/Jensen-holm/FireTCP"
+                    href="https://medium.com/@jensen.dev.01/socket-programming-in-mojo-e113f6c8cbef"
+                    description="A lightweight TCP socket networking API for the Mojo programming language for building client/server applications"
+                    inProgress={false}
+                    newTab={true}
+            />
 
             <Project
                 projectName="ClusteRGB"
@@ -67,18 +77,6 @@
                 inProgress={false}
                 newTab={true}
             />
-
-            <Project
-                    projectName="GPU-Accelerated-QST"
-                    projectImgPath="cuda.jpg"
-                    buttonText="Source Code"
-                    buttonHref="https://github.com/Jensen-holm/GPU-Accelerated-QST"
-                    href="https://github.com/Jensen-holm/GPU-Accelerated-QST"
-                    description="Undergraduate research project: GPU accelerated quantum scattering theory with the GVSU chemistry department and Dr. Erin Carrier."
-                    inProgress={true}
-                    newTab={true}
-            />
-
 
             <Project
                     projectName="G3N Graphics library wrapper & physics engine"
