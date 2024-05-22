@@ -8,7 +8,7 @@
 <Navbar />
 <div class="p-10">
   <div class="flex justify-center items-center pt-10">
-    <Alert color="red" class="text-center">
+    <!-- <Alert color="red" class="text-center">
       <InfoCircleSolid slot="icon" />
       <span class="font-medium">Warning!</span>
       The backend for this app is currently being hosted using the
@@ -18,7 +18,7 @@
       free instances. <br />
       This means that content and functionality may 'fall asleep', and may be slow
       to wake up. Please be patient!
-    </Alert>
+    </Alert> -->
   </div>
   <slot />
 </div>
